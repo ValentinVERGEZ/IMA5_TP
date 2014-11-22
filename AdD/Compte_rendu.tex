@@ -1,0 +1,227 @@
+\documentclass[11pt,oneside]{article}
+
+%---------------------------------%
+%__Inclusions de packages__%
+%_Packages Basiques_%
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[francais]{babel}
+
+  \usepackage{bigcenter}
+
+  \usepackage{verbatim} %Environnement pour Ècrire du code \begin{verbatimtab}[10] pour 10 espaces par tabulation
+  \usepackage{moreverb}
+
+%Inclure Images
+  \usepackage{graphicx} % Pour l'ajout d'images (commande \includegraphics[height=200, width=600]{chemin})
+  \usepackage{hyperref}
+
+%Maths
+  \usepackage{amsmath} % Pour fraction complexes
+  \usepackage{amssymb} %math
+  \usepackage{mathrsfs} %math
+  \usepackage{siunitx} % Notation complexe : \num{}
+
+%Pour les figures
+  \usepackage{wrapfig}
+  \usepackage{tikz}
+  \usepackage{float}
+  \usepackage{placeins}	%% \FloatBarrier pour obliger toutes les figures flottantes à s'afficher avant la commande
+
+%---------------------------------%
+%__Quelques configurations__%
+%_Annexes_%
+  \usepackage{appendix}\renewcommand{\appendixtocname}{Annexes} 		\renewcommand{\appendixpagename}{Annexes} 
+
+%_Présentation et marges_%
+  \usepackage{layout}
+  \usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry} %Marges
+  \pagestyle{plain} %Plain : Seulement numero en bas de page, sinon mettre headings
+  \marginparwidth = 0.mm
+
+%_LstListings_%
+  %Package
+    \usepackage{listings} %Environnement pour écrire du code    
+    \usepackage{color}
+
+	\definecolor{mygreen}{rgb}{0,0.6,0}
+	\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+	\definecolor{mymauve}{rgb}{0.58,0,0.82}
+  
+  %Config langage Matlab
+	\lstset{ %
+	  inputencoding=latin1,
+	  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+	  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	  breaklines=true,                 % sets automatic line breaking
+	  captionpos=b,                    % sets the caption-position to bottom
+	  commentstyle=\color{mygreen},    % comment style
+	  deletekeywords={...},            % if you want to delete keywords from the given language
+	  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	  escapechar=|,
+	  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	  frame=single,                    % adds a frame around the code
+	  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	  keywordstyle=\color{blue},       % keyword style
+	  language=Matlab,                 % the language of the code
+	  morekeywords={*,...},            % if you want to add more keywords to the set
+	  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	  numbersep=5pt,                   % how far the line-numbers are from the code
+	  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	  showstringspaces=false,          % underline spaces within strings only
+	  showtabs=false,                  % show tabs within strings adding particular underscores
+	  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	  stringstyle=\color{mymauve},     % string literal style
+	  tabsize=2,                       % sets default tabsize to 2 spaces
+	  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+	}
+  
+  %Config Langage C
+%    \lstset{ %Definition des paramètres du code
+%    language=C,
+%    basicstyle=\footnotesize,
+%    numbers=left,
+%    numberstyle=\normalsize,
+%    numbersep=7pt,
+%    showstringspaces=false,  % underline spaces within strings
+%    showtabs=false,
+%    frame=single, %Cadre autour du texte
+%    escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%    morekeywords={*,...}            % if you want to add more keywords to the set
+%    }
+    
+%_Commandes rapides pour maths_%
+%\newcommand{\xz}{\ensuremath{\overrightarrow{x_0}}}
+%\newcommand{\xu}{\ensuremath{\overrightarrow{x_1}}}
+%\newcommand{\xd}{\ensuremath{\overrightarrow{x_2}}}
+%\newcommand{\xt}{\ensuremath{\overrightarrow{x_3}}}
+%\newcommand{\yz}{\ensuremath{\overrightarrow{y_0}}}
+%\newcommand{\yu}{\ensuremath{\overrightarrow{y_1}}}
+%\newcommand{\yd}{\ensuremath{\overrightarrow{y_2}}}
+%\newcommand{\yt}{\ensuremath{\overrightarrow{y_3}}}
+%\newcommand{\zz}{\ensuremath{\overrightarrow{z_0}}}
+%\newcommand{\zu}{\ensuremath{\overrightarrow{z_1}}}
+%\newcommand{\zd}{\ensuremath{\overrightarrow{z_2}}}
+%\newcommand{\zt}{\ensuremath{\overrightarrow{z_3}}}
+
+%---------------------------------%
+%__Informations pour le document__%
+  \title{\textsc{\textbf{TP - Analyse de données}} - IMA5\\~\\
+  \Large{\textit{Analyse en composantes principales d'un ensemble de données destiné à prédire la consommation au kilomètre d'un véhicule}}
+  }
+  \date{}
+  \author{
+   Pierre \bsc{Appercé}\\ \and
+   Valentin \bsc{vergez}
+   }
+
+%---------------------------------%
+%__Début du document__%
+\begin {document}
+
+%_Première page
+	% Titre du document	
+	\maketitle
+
+	% Table des matières
+	\renewcommand{\contentsname}{Table des matières}
+	\tableofcontents % Table des matières
+	\newpage
+	
+%_Contenu
+\section{Introduction}L'Analyse en composantes principales (ACP) est une méthode de la famille de l'analyse des données et plus généralement de la statistique multivariée, qui consiste à transformer des variables liées entre elles (dites "corrélées" en statistique) en nouvelles variables décorrélées les unes des autres. Ces nouvelles variables sont nommées "composantes principales", ou axes principaux. Elle permet au praticien de réduire le nombre de variables et de rendre l'information moins redondante \footnote{\href{http://fr.wikipedia.org/wiki/Analyse_en_composantes_principales}{Wikipédia - ACP}}\\
+
+L'objectif de ce TP est de faire une ACP sur un ensemble de données propre à l'automobile. A partir de l'étude de ces données nous allonrs faire des regroupements par classe puis essayer d'obtenir un modèle de prédiction.\\
+
+\section{Questions}
+\subsection{Choix des variables}
+Après l'analyse de la nature des données du fichier ``auto\_tp.txt'', nous avons fait le choix de garder les variables suivantes : 
+\begin{itemize}
+	\item mgp
+	\item displacement
+	\item horsepower
+	\item weight
+	\item acceleration
+\end{itemize}~\\
+Nous n'avons pas garder les autres variables car elles ne sont pas continues. Ces variables discrètes pourront nous servir par la suite comme variables supplémentaires.\\
+
+\subsection{Espace de travail}
+On se place dans l'espace des variables. Car on souhaite identifier les similitudes et différences des individus. Nous avons arbitrairement choisi de nous intéresser à ce cas de figure et la suite du TP sera basé sur ce choix.\\
+
+\subsection{Analyse en Composantes Principales}
+On souhaite maintenant faire une ACP dans l'espace des variables.\\
+Pour savoir précisément comment nous procédons, se référer au code source Matlab en annexe \ref{MatLab:Annexe} ligne \ref{MatLab:ACP} page \pageref{MatLab:ACP}.\\
+
+Il est important de remarquer que nous normalisons (centrer et réduire) les données avant de faire l'ACP, afin qu'aucune des variables ne soient prédominantes par rapport aux autres.\\
+
+\subsection{Axes à retenir}
+On peut voir la représentation des intérêts (en pourcentage) des axes sur la Figure \ref{img:interest}.\\
+Nous avons choisi de retenir deux axes, les deux avec plus de 10\% de représentations.\\
+On va donc continuer l'étude sur ces deux axes ainsi retenus.\\
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{Images/Interest}
+	\caption{Intérêts des axes de l'ACP}\label{img:interest}
+	  \end{center}
+\end{figure}
+\FloatBarrier
+
+\subsection{Détermination des classes}
+Pour déterminer les différentes classes possibles, on représente les données sur les axes retenues. On obtient le nuage de point de la Figure \ref{img:nuagePoint} page \ref{img:nuagePoint}.\\
+Sans s'intéresser à la coloration, qui concerne l'étape suivante, on pourrait identifier facilement deux classes en les séparant par la l'abscisse 1.\\
+Pour savoir si notre classification est satisfaisante, on va regarder l'apport de nos variables supplémentaires.\\ 
+
+\subsection{Analyse de l'influence des variables supplémentaires}
+Les variables supplémentaires sont les variables discrètes que nous n'avions pas utilisées pour faire l'ACP. On se sert maintenant de ces variables pour colorer nos données et y chercher de nouvelles relations.\\
+On voit (Figure \ref{img:nuagePoint} page \ref{img:nuagePoint}) que le nombre de cylindres des véhicules (couleurs vert, bleu et rouge) est directement lié à nos classes. Mieux encore, il nous permet de distinguer nettement trois classes là où l'on en aurait gardé seulement deux précédemment.\\
+
+En revanche la seconde variable supplémentaire utilisée, l'origine des véhicules, semble moins pertinente. Elle permet surtout d'identifier les types de cylindrées fabriquées par les différents constructeurs automobiles.\\
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{Images/NuagePoint}
+	\caption{Représentation en nuage de points des données sur les deux axes d'ACP retenus}\label{img:nuagePoint}
+	  \end{center}
+\end{figure}
+\FloatBarrier
+
+\subsection{Prédiction du 'mpg' en fonction des autres variables}
+Une des parties les plus intéressante de l'analyse de données, c'est la prédiction.\\
+Dans notre cas, nous nous intéressons à la prédiction de la consommation du véhicule, son "mpg" (miles per gallon).\\
+
+Pour cela, nous prenons la moitié des données et essayons de représenter le mpg comme une combinaison linéaire des autres variables. Une fois que l'on a cette représentation, on essaie de la tester sur l'autre moitié des données en prédisant leur mpg.\\
+Avec la méthode des moindres carrés, nous avons mesuré un écart de seulement 6\% entre nos estimations et les valeurs mesurées.\\
+
+Pour savoir précisément comment nous procédons, se référer au code source Matlab en annexe \ref{MatLab:Annexe} ligne \ref{MatLab:prediction} page \pageref{MatLab:prediction}.\\
+
+Pour ce rendre compte visuellement du résultat, nous avons mis en parallèle les données estimées et les données réelles (Figure \ref{img:estimation}).\\
+On peut reconnaître que le résultat du modèle est plutôt satisfaisant, malgré le très peu de données utilisées pour le créer.
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{Images/Estimation}
+	\caption{Comparaison entre estimation (rouge) et valeurs réelles (bleu)}\label{img:estimation}
+	  \end{center}
+\end{figure}
+\FloatBarrier
+
+\section{Conclusion}
+Ce TP n’est jamais qu'une brève introduction au monde de l'analyse de donnée et de la méthode d'ACP. Néanmoins, il aura permis de comprendre assez simplement la puissance de ces outils pour classifier puis pour prédire à partir d'un set de données qui était très difficilement lisible à l'état brut.\\
+
+En résumé, ce que nous aura appris ce TP , c'est que l'analyse de données est un ensemble d'outils complexes et complets qui nous permettent d'extraire un maximum d'informations à partir d'ensemble de données.
+
+%_Annexes
+	~\newpage{}
+	\appendix
+	\appendixpage
+	\addappheadtotoc
+	
+\label{MatLab:Annexe}
+\section{Code source complet}
+\lstinputlisting[language=Matlab,inputencoding=latin1,escapechar=|]{Matlab_ACP.m}
+
+\end{document}
