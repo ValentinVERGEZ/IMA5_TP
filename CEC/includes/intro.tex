@@ -1,34 +1,30 @@
 \section{Introduction}
 
-%%% _ Avoir si on garde (souci de longueur) _ %%
-%\subsection{Histoire : D'où vient le transformateur ?}
-%
-%C'est en 1831 que Michael Faraday réussit à induire un courant dans un circuit électrique secondaire. En 1837 Nicholas Joseph Callan réalise le premier transformateur composé d'un primaire et d'un secondaire. En 1884 Lucien Gaulard met en service une liaison bouclée de démonstration (80km) alimentée par un courant alternatif sous 2000 volts. 
-%
-%\subsection{Objectif : Pourquoi l'utilise t-on ? }
-%
-%Un transformateur est un convertisseur « alternatif-alternatif » qui permet de modifier la valeur d’une tension alternative en maintenant sa fréquence et sa forme inchangées. Les transformateurs sont des machines électriques entièrement statiques, cette absence de mouvement est d'ailleurs à l'origine de leur excellent rendement. 
-%
-%Il ne pourrait pas y avoir de transport d’énergie électrique à grande distance sans transformateurs. Grâce aux transformateurs élévateurs de tension, on transporte des volts plutôt que des ampères, limitant les pertes d’énergie à quelque pour cent. D’autres transformateurs abaissent la tension pour que celle-ci ne soit plus aussi dangereuse pour l’utilisateur.//
-%Les transformateurs sont réalisés en toutes puissances et tensions, de quelques VA et à basse tension pour l’alimentation de circuits électroniques à quelques centaines de MVA et de kV pour l’alimentation ou le couplage des réseaux de transport de l’énergie électrique.
-%
-%Le transformateur est un appareil qui peut :
-%\begin{itemize}
-%	\item Transformer une tension alternative d'une grandeur à une autre grandeur.
-%	\item Transformer un courant alternatif d'une grandeur à une autre grandeur.
-%	\item Isoler un circuit électrique d'un courant continu circulant dans un autre circuit électrique.
-%	\item Faire paraître une impédance comme ayant une autre valeur.
-%\end{itemize}
-%
-%
-%\subsection{Constitution : XXXXX ?}
-%
-%Un transformateur électrique se compose de tôles ferromagnétiques et de bobinages. Les tôles constituent le circuit magnétique du transformateurs. Dans le milieu industriel elles sont généralement de forme ''E'' ou ''I'' ou ''XXX''. Les enroulements sont ensuite bobinées autour du noyau. Nous allons étudié un transformateur monophasé c'est à dire que l'on trouve deux bobinages un primaire et un secondaire. Voir schéma ci-dessous. Le bobinage de gauche est le primaire, celui de droite est le secondaire.
-%
-%constitué d'un empilage de tôles minces en acier. Celui-ci permet de relier magnétiquement le primaire et le secondaire en canalisant les lignes de champ magnétiques produites par le primaire.
-%
-%// Schéma
+
+\subsection{Un transformateur c'est quoi ? }
+
+	Un transformateur monophasé est un convertisseur « alternatif-alternatif » qui permet de modifier la valeur d’une tension alternative en maintenant sa fréquence et sa forme inchangées. Le transport d'énergie électrique sur de grandes distances serait impossible sans transformateurs. En effet grâce aux transformateurs élévateurs de tension, on transporte des ''volts'' plutôt que des ''ampères'', limitant les pertes d’énergie à quelque pour cent. De plus les transformateurs sont des machines électriques statiques, l'absence de mouvement est d'ailleurs à l'origine de leur excellent rendement. Les transformateurs couvrent toutes les gammes de puissances et de tensions, de quelques VA et à basse tension pour l’alimentation de circuits électroniques à quelques centaines de MVA et de kV pour l’alimentation ou le couplage des réseaux de transport de l’énergie électrique. % Revoir la dernière phrase XXX
+
+\subsection{La constitution d'un transformateur}
+
+	Un transformateur électrique se compose de tôles ferromagnétiques et de bobinages. Les tôles constituent le circuit magnétique du transformateurs. Dans le milieu industriel, elles sont généralement de forme ''E'' ou ''I'' ou ''XXX''.
+	% Revoir la phrase : manque d'informations sur les types de tôles
+ Les enroulements sont ensuite bobinées autour du noyau du circuit magnétique. Dans notre cas, un transformateur monophasé est constitué de deux bobinages un primaire et un secondaire. 
+ % Voir figure XXX
+Le circuit magnétique permet de ''connecter''  magnétiquement le circuit primaire au secondaire en canalisant les lignes de champ magnétiques produites par le primaire.
+
+% La photo n'est pas la bonne. Cependant j'ai un problème de placement de l'image, je la voudrais juste en dessous du paragraphe...	 
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.2\textwidth]{images/TP_intro_transfo}
+	\caption{Dessin du transformateur dimensionné sans optimisation}\label{img:dessinTransfoCarre}
+	\end{center}
+\end{figure}
+
 
 \subsection{Objectifs}
 Le but de ce TP est de réaliser le dimensionnement d'un transformateur monophasé selon un cahier des charges donné puis de critiquer sa validité.\\
-Notre dimensionnement sera optimisé pour obtenir le transformateur le plus léger possible. On validera ensuite le modèle sur FEMM, un logiciel de simulation par éléments finis. Puis on fera l'étude thermique du transformateur ainsi obtenu afin de relativiser notre choix d'optimisation.\\
+Le dimensionnement sera optimisé pour obtenir le transformateur le plus léger possible. On validera ensuite le modèle sur FEMM, un logiciel de simulation 2D par éléments finis. Enfin on finira par l'étude thermique du transformateur obtenu, afin de relativiser notre choix d'optimisation.\\ % Revoir la dernière phrase XXX
+
+
+%Sinon intro sur une page je pense que l'on est bon ?? 
