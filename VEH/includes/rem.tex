@@ -1,14 +1,11 @@
 \section{REM - Représentation \'Energétique Macroscopique du véhicule électrique hybride}
 
+Si l'on veut construire la REM d'un système, il faut dans un premier temps écrire les équations qui régissent chaque éléments du système. Une fois cette étape réalisée, on construit les éléments de base de la REM du système correspondant aux équations. Puis on les assemblent pour composer une représentation complète du système.
+
 \subsection{Équations et REM du système}
 
-Si l'on veut construire la REM d'un système, il faut dans un premier temps écrire les équations qui régissent chaque éléments du système. 
-
-%The system can be decomposed inti subsystems in interactions using 4 basic EMR elements (Table 1) :
-Une fois cette étape réalisée, on construite la REM du systèmes. Pour cela on décompose le système en sous-systèmes (XXX besoin d'aide pour finir cette phrase correctement)...
-
 \subsection{Hâcheur}
-Le hacheur utilisé est un hacheur survolteur (XXX à vérifier). C'est un hacheur quatre quadrants, réversible en tension et en courant.  
+Le hacheur utilisé est un hacheur abaisseur. C'est un hacheur quatre quadrants, réversible en tension et en courant.  
 \vspace{-10px}
 \begin{figure}[ht]
 \centering
@@ -48,7 +45,7 @@ $\begin{cases}
 \vspace{-20px}
 
 \subsection{Boîte de vitesse}
-Dans ce TP, nous ne gérons pas le rapport de la boite de vitesse contrairment aux voitures hybrique réelles. Le rapport est donc précédement enregister. Nous n'aurons qu'à utiliser ce rapport pour déterminer le ratio et le rendement de la vitesse selectionnée. 
+Dans ce TP, nous ne gérons pas le rapport de la boite de vitesse contrairement aux voitures hybrides réelles. Le rapport est donc une donnée d'entrée de notre point de vu. Nous n'aurons qu'à utiliser ce rapport pour déterminer le ratio et le rendement de la vitesse selectionnée. 
 \vspace{-10px}
 \begin{figure}[ht]
 \centering
@@ -69,7 +66,7 @@ $\begin{cases}
 
 \newpage
 \subsection{Poulie}
-La poulie est montée sur l'arbre du moteur thermique. La présence du ratio au niveau de la poulie sur la partie électrique s'explique car le moteur électrique troune plus rapidement que le moteur thermique. 
+La poulie est montée sur l'arbre du moteur thermique. Afin de diminuer le volume du moteur électrique, on choisi un moteur moins coupleux mais tournant plus vite. Le ratio permet de rammener cette vitesse dans une gamme utilisable pour cette application.
 \vspace{-20px}
 \begin{figure}[ht]
 \centering
@@ -89,7 +86,7 @@ $\begin{cases}
 \vspace{-30px}
 
 \subsection{Différentiel}
-
+Le différentiel est l'organe qui distribue le couple aux deux éléments de propulsion.
 \vspace{-0px}
 \begin{figure}[ht]
 \centering
@@ -114,7 +111,7 @@ $\begin{cases}
 \vspace{-10px}
 
 \subsection{Roues}
-La roue permet de transformer le movement de rotation en mouvement de translation (XXX)
+La roue permet de transformer le mouvement de rotation en mouvement de translation.
 \vspace{-10px}
 \begin{figure}[ht]
 \centering
@@ -139,7 +136,7 @@ $\begin{cases}
 \begin{figure}[ht]
 \centering
 \begin{minipage}{.5\textwidth}  
-\centering
+
 $ R_t $ : Rayon de braquage\\
 $ l_ev $ : Largeur véhicule électrique\\
 ~\\
