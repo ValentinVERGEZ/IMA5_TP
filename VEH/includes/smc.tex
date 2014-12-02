@@ -1,1 +1,30 @@
-\section{SMC}
+\section{SMC - Structure maximale de commande}
+Après avoir modélisé le véhicule via sa REM, on peut s'intéresser au contrôle. Une méthode efficace est d'utiliser le contrôle par inversion du modèle.\\
+
+La Structure Maximale de Commande est une représentation unique de la chaîne de commande. Elle est optimale mais est aussi parfois difficile à réaliser en pratique.\\
+
+\subsection{Chaîne de réglage}
+La première chose à faire est d'identifier les variables à régler, appelées variables objectifs.\\
+Dans notre cas, nous nous intéressons uniquement au contrôle de la vitesse du véhicule. La variable objectif est alors $V_{hev}$.\\
+
+Nos variables de réglages sont : 
+\begin{itemize}
+\item $S_{conv}$ (Entrée de réglage du hacheur)
+\item $T_{ice}$ (Couple du moteur thermique)
+\item $F_{brake}$ (Force de freinage mécanique)
+\end{itemize}
+
+Les autres paramètres sont soit fixes soit contrôlés par l'utilisateur directement (exemple de $K_{gear}$, le rapport de la boîte de vitesse).\\
+
+Nous n'avons pas de variable de contrainte, le moteur électrique étant à aimant permanent. Cette information sera utile pour la partie suivante, la stratégie.\\
+
+%% Chaîne de réglage
+
+\subsection{Inversion}
+A partir des équations utilisées pour la REM précédemment, nous pouvons aisément inverser les blocs de la REM.\\
+
+%% Exemple inversion
+
+Toutefois, deux blocs posent problèmes. La partie accumulation du châssis ainsi que la partie accumulation du moteur à courant continu. En effet, une fois inversés ils présentent des dérivées 
+
+\subsection{Correction}
