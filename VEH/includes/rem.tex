@@ -1,10 +1,10 @@
 \section{REM - Représentation \'Energétique Macroscopique du véhicule électrique hybride}
 
-Si l'on veut construire la REM d'un système, il faut dans un premier temps écrire les équations qui régissent chaque éléments du système. Une fois cette étape réalisée, on construit les éléments de base de la REM du système correspondant aux équations. Puis on les assemblent pour composer une représentation complète du système.
+Si l'on veut construire la REM d'un système, il faut dans un premier temps écrire les équations qui régissent chaque élément du système. Une fois cette étape réalisée, on construit les éléments de base de la REM du système correspondants aux équations. Puis on les assemblent pour composer une représentation complète du système.
 
 \subsection{Équations et REM du système}
 
-\subsection{Hâcheur}
+\subsection{Hacheur}
 Le hacheur utilisé est un hacheur abaisseur. C'est un hacheur quatre quadrants, réversible en tension et en courant.  
 \vspace{-10px}
 \begin{figure}[ht]
@@ -45,7 +45,7 @@ $\begin{cases}
 \vspace{-20px}
 
 \subsection{Boîte de vitesse}
-Dans ce TP, nous ne gérons pas le rapport de la boite de vitesse contrairement aux voitures hybrides réelles. Le rapport est donc une donnée d'entrée de notre point de vu. Nous n'aurons qu'à utiliser ce rapport pour déterminer le ratio et le rendement de la vitesse sélectionnée. 
+Dans ce TP, nous ne gérons pas le rapport de la boite de vitesse contrairement aux voitures hybrides réelles. Le rapport est donc une donnée d'entrée de notre point de vue. Nous n'aurons qu'à utiliser ce rapport pour déterminer le ratio et le rendement de la vitesse sélectionnée. 
 \vspace{-10px}
 \begin{figure}[ht]
 \centering
@@ -66,15 +66,16 @@ $\begin{cases}
 
 \newpage
 \subsection{Poulie}
-La poulie est montée sur l'arbre du moteur thermique. Afin de diminuer le volume du moteur électrique, on choisi un moteur moins coupleux mais tournant plus vite. Le ratio permet de ramener cette vitesse dans une gamme utilisable pour cette application.
+La poulie est montée sur l'arbre du moteur thermique. Cela implique que la vitesse de rotation en sortie de la poulie est identique à la vitesse de rotation de l'arbre. \\
+Afin de diminuer le volume du moteur électrique, on choisi un moteur moins coupleux mais tournant plus vite. Le ratio permet de ramener cette vitesse dans une gamme utilisable pour cette application.
 \vspace{-20px}
 \begin{figure}[ht]
 \centering
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	W_pul &= W_{gearbox} = \cfrac{1}{K_p}.W_{dcm} \\
-	T_pul &= (T_{gear}+K_p.T_{dcm}).\mu{}_p^{p}
+	W_{pul} &= W_{gearbox} = \cfrac{1}{K_p}.W_{dcm} \\
+	T_{pul} &= (T_{gear}+K_p.T_{dcm}).\mu{}_p^{p}
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -99,7 +100,7 @@ $\begin{cases}
 ~\\
 $\begin{cases}
 	 T_{diff} &= K_{diff}.T_{pul}.\mu{}_{diff}^{p}\\
-	W_pul &= K_{diff}.W_{diff}
+	W_{pul} &= K_{diff}.W_{diff}
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
