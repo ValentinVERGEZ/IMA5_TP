@@ -2,27 +2,26 @@
 
 \subsection{Objectif}
 
-	Ce TP consiste à modéliser et contrôler le couplage parallèle thermique-électrique d'un véhicule électrique hybriqde (VEH). Pour cela, nous allons utiliser la Représentation Énergétique Macroscopique (REM) pour modéliser le système. Puis nous metterons en place une Structure Maximale de Commande (SMC) afin de controler XXX.\\
-	Nous réaliserons aussi une commande de stratégie. Celle-ci aura pour but de (stratégie finale adoptée XXX).
+	Ce TP consiste à modéliser et contrôler le couplage parallèle thermique-électrique d'un véhicule électrique hybride (VEH). Pour cela, nous allons utiliser la Représentation Énergétique Macroscopique (REM) pour modéliser le système. Puis nous mettrons en place une Structure Maximale de Commande (SMC) afin de contrôler sa vitesse.\\
+	Nous réaliserons aussi une stratégie de commande. Celle-ci aura pour but d'optimiser le rendement énergétique du véhicule.
 
 \subsection{Hypothèses et simplifications}
 
-	Le systèmes étant relativement complexe, nous avons formulé plusieurs hypothéses et simplifications. On obtient ainsi un système moins compliqué et suffisament proche de la réalité pour notre étude. 
+	Le système étant relativement complexe, nous avons formulé plusieurs hypothèses et simplifications. On obtient ainsi un système moins compliqué et suffisamment proche de la réalité pour notre étude. 
 
 \begin{enumerate} 
 \item Les interrupteurs sont considérés comme idéaux.
-\item Les aimants permanants de la machine à courant continu ne staturent pas (XXX).
+\item Les aimants permanents de la machine à courant continu ne saturent pas (XXX).
 \item L'inertie des différents arbres sont négligés.
 \item L'inertie des roues est négligée.
-\item L'dérence entre la roue et le sol est considérés parfaite. 
+\item L'adhérence entre la roue et le sol est considéré parfaite. 
 \item L'embrayage fonctionne en tout ou rien (sans glissement).
 \end{enumerate}
 
 \subsection{Contraintes}
+	Nous avons considéré l'embrayage comme un "interrupteur" qui transmet ou non le couple fourni par le moteur. Partant de cette simplification, la voiture ne peut donc pas démarrer à partir du moteur thermique. Par conséquent, il faudra démarrer sur le moteur électrique. Une fois que l'on aura atteint une vitesse suffisante (pour ne pas faire caler le moteur), nous pourrons enfin l'utiliser.
 
-	Nous avons considéré l'embrayage comme un ''interrupteur'' qui transmet ou non le couple fournir par le moteur. Partant de cette simplifications la voiture ne peut donc pas démarer à partir du moteur thermique. Par conséquent, il faudra démarer sur le moteur électrique. Une fois que l'on aura atteint une vitesse suffisante (pour ne pas faire caler le moteur), nous pourrons l'utiliser.
-
-\begin{figure}[b]
+\begin{figure}[ht]
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/Systeme_VEH.png}
 	\caption{Représentation schématique du système}\label{img:Schéma système VEH}
@@ -31,8 +30,12 @@
 \FloatBarrier 
 
 % XXX je voudrais placer cette image juste après le texte et je n'y arrive pas !!!!
+
+VOILA ;-)
 		
-		
+L'intérêt de la simulation ici est assez simple. On a un véhicule connu, facilement modélisable et le but est d'optimiser sa commande. Il est beaucoup moins coûteux de multiplier les tests en simulation que sur un modèle réel.\\
+De plus la simulation nous permet d'observer certains phénomènes qui sont difficilement accessible sur modèle réel.\\
+La simulation apporte donc un gain surtout de temps et d'argent mais facilite aussi certains tests.\\
 %Véhicule hybride
 %Intérêt de la simulation (coût pour développement de la SMC/Strat)
 %Intérêt de la strat
