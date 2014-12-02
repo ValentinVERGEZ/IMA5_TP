@@ -1,15 +1,113 @@
 \section{Représentatiob énergétique Macroscopique du véhicule électrique hybrique}
 
-\subsection{Équations du système}
+\subsection{Équations et REM du système}
 
 Si l'on veut construire la REM d'un système, il faut dans un premier temps écrire les équations qui régissent chaques éléments du sytèmes. 
 
-
-\subsection{REM du système}
 %The system can be decomposed inti subsystems in interactions using 4 basic EMR elements (Table 1) :
 Une fois cette étape réalisée, on construite la REM du sytèmes. Pour cela on décompose le système en sous-systèmes (XXX besoin d'aide pour finir cette phrase correctement)...
 
+\subsection{Chopper}
 
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Chopper.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	 U_{chop} &= S_{conv}.U_{batt}\\
+	I_{arm} &= S_{conv}.I_{dcm}
+\end{cases}$
+
+
+\subsection{Machine à courant continu}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/MCC.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	 T_{dcm} &= K_{cfiexc}.I_{dcm}\\
+	E &= K_{cfiexc}.W_{dcm}\\
+	I_{dcm} &= \cfrac{1}{L}\int{U_{ch}-E-R.I_{dcm}}	
+\end{cases}$
+
+
+\subsection{Boîte de vitesse}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Gearbox.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	 T_{gear} &= T_{clutch}.K_{gear_{ratio}}.\mu{}_{gear}^{p}\\
+	W_{gearbox} &= W_{pul}.K_{gear_{ratio}}
+\end{cases}$
+
+
+\subsection{Poulie}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Pulley.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	W_pul &= W_{gearbox} = \cfrac{1}{K_p}.W_{dcm} \\
+	T_pul &= (T_{gear}+K_p.T_{dcm}).\mu{}_p^{p}
+\end{cases}$
+
+
+\subsection{Différentiel}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Differential.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	T_{Wh_R} &= T_{Wh_L} = \cfrac{T_{diff}}{2} \\
+	W_{Wh_R} &= W_{Wh_L} = 2.W_{diff}
+\end{cases}$\\
+~\\
+$\begin{cases}
+	 T_{diff} &= K_{diff}.T_{pul}.\mu{}_{diff}^{p}\\
+	W_pul &= K_{diff}.W_{diff}
+\end{cases}$
+
+\subsection{Roues}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Wheel.png}
+\end{wrapfigure}
+
+$\begin{cases}
+	F_{Wh_n} &= \cfrac{T_{Wh_n}}{R_{Wh_n}}  \\
+	W_{Wh_n} &= \cfrac{V_{Wh_n}}{R_{Wh_n}}
+\end{cases}$
+
+\subsection{Châssis}
+
+\begin{wrapfigure}{r}{10cm}
+\includegraphics[width=0.3\textwidth]{images/Chassis.png}
+\end{wrapfigure}
+
+$ R_t $ : Rayon de braquage\\
+$ l_ev $ : Largeur véhicule électrique\\
+~\\
+$\begin{cases}
+	V_{L_{Wh}} &= \cfrac{R_t+\cfrac{l_ev}{2}}{R_t}.V_{ev} \\
+	V_{R_{Wh}} &= \cfrac{R_t-\cfrac{l_ev}{2}}{R_t}.V_{ev}\\
+	F_{ev} &= F_{R_{Wh}} + F_{L_{Wh}}
+\end{cases}$\\
+~\\Nous supposons que nous allons toujours tout droit, $ R_t = 0 $.\\
+$\begin{cases}
+	V_{L_{Wh}} &= V_{ev} \\
+	V_{R_{Wh}} &= V_{ev}\\
+	F_{ev} &= F_{R_{Wh}} + F_{L_{Wh}}
+\end{cases}$\\
+~\\
+$\begin{cases}
+	M_{hev}\cfrac{dV_{hev}}{dt} &= F_{hev}-F_{hext} \\
+	V_{hev} &= \cfrac{1}{M_{hev}}\int{(F_{hev}-F_{hext})dt}
+\end{cases}$
  
 %Assez scolaire dans le raisonnement, des équations impliquent des blocs, implique la REM
 %On insiste sur l'inversion du rendement selon la puissance.
