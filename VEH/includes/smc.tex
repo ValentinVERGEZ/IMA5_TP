@@ -1,7 +1,3 @@
-%\section{SMC}
-%SMC : 
-%Inversion très scolaire aussi, on a les équations on les inverse. Quand la causalité ne peut pas être respecté, on remplace par un correcteur.
-%Raisonnement sur les correcteurs.
 \section{SMC - Structure maximale de commande}
 Après avoir modélisé le véhicule via sa REM, on peut s'intéresser au contrôle. Une méthode efficace est d'utiliser le contrôle par inversion du modèle.\\
 
@@ -27,13 +23,20 @@ Nous n'avons pas de variable de contrainte, le moteur électrique étant à aima
 \subsection{Inversion}
 A partir des équations utilisées pour la REM précédemment, nous pouvons aisément inverser les blocs de la REM.\\
 
-%% Exemple inversion
+% Exemple inversion : 
+%\begin{minipage}{.5\textwidth}
+ % \centering
+%\includegraphics[height=80px]{images/SMC_exemple.png}
+%\end{minipage}
+%\end{figure}
+%\FloatBarrier
+%\vspace{-20px}
 
 Toutefois, deux blocs posent problèmes. La partie accumulation du châssis ainsi que la partie accumulation du moteur à courant continu. En effet, une fois inversés ils présentent des dérivées ce qui en pratique nous obligerait à connaître l'état futur du système. Cela étant impossible, on remplace ces éléments dérivatifs par des correcteurs (PI ou IP).\\
 
 \subsection{Correction}
 Pour déterminer exactement les paramètres de ces correcteurs, on va développer la fonction de transfert en boucle fermée du système avec correcteur, choisir le comportement du système corrigé puis identifier les paramètres de notre correcteur.\\
-\subsubsection{•}
+
 
 
 \begin{figure}[ht]
