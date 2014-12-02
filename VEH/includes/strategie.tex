@@ -9,9 +9,9 @@ Précédemment on a pu voir que nos variables de réglages étaient au nombre de
 $V_r - (V_o + V_c) = 2$ \\
 Cela signifie que l'on a de la liberté dans notre commande. On va pouvoir agir sur deux nouveaux paramètres.\\
 
-La stratégie consiste à répartir les flux d'énergie dans le système, dans un but donnée. Ici notre stratégie aura pour but d'économiser l'énergie en jouant sur deux paramètres : la répartition de couple entre le moteur thermique et le moteur électrique (afin d'optimiser le rendement du moteur thermique) ainsi que la répartition entre freinage électrique et freinage mécanique (afin de maximiser la récupération d'énergie sans dépasser les limites de la partie électrique).\\
+La stratégie consiste à répartir les flux d'énergie dans le système, dans un but donné. Ici notre stratégie aura pour but d'économiser l'énergie en jouant sur deux paramètres : la répartition de couple entre le moteur thermique et le moteur électrique (afin d'optimiser le rendement du moteur thermique) ainsi que la répartition entre freinage électrique et freinage mécanique (afin de maximiser la récupération d'énergie sans dépasser les valeurs limites des composants de la partie électrique).\\
 
-Pour résumer, nous avons identifier plusieurs mode de fonctionnement du système.\\
+Pour résumer, nous avons identifié plusieurs mode de fonctionnement du système.\\
 \begin{itemize}
 \item Accélération toute électrique
 \item Accélération toute thermique
@@ -94,15 +94,17 @@ Le choix des différents modes est représenté par l'algorithme suivant :  \\
 %end
 
 \subsection{Le mode boost}
-Parmi ces six modes, quatre consiste à envoyer une consigne binaire. On ne s'attardera pas dessus.\\
-Le mode freinage combiné consiste simplement à utiliser la partie électrique jusqu'à sa limite, on ne détaillera pas plus non ce mode.\\
+Parmi ces six modes, quatre consistent à envoyer une consigne binaire. On ne s'attardera pas dessus.\\
+Le mode freinage combiné consiste simplement à utiliser la partie électrique jusqu'à sa limite et de compléter avec le freinage mécanique, on ne détaillera pas non plus ce mode.\\
 
-En revanche le mode boost est lui beaucoup plus intéressant puisqu'il consiste à optimiser le rendement du moteur thermique ce qui n'est pas chose évidente.\\
-Notre idée à été de nous baser sur les caractéristiques de consommation de carburant par kWh en fonction du couple et de la vitesse.\\
-Notre SMC impose la vitesse au moteur thermique, donc de cette caractéristique on peut extraire à une vitesse donnée la caractéristique de consommation en fonction du couple.\\
-On cherche alors la consommation minimale et on retrouve le couple correspondant. C'est alors le couple de référence pour notre moteur thermique, le moteur électrique apportant le reste du couple.\\
+En revanche le mode boost est lui beaucoup plus intéressant, puisqu'il consiste à optimiser le rendement du moteur thermique, ce qui n'est pas chose évidente.\\
+Notre idée a été de nous baser sur les caractéristiques de consommation de carburant par kWh en fonction du couple et de la vitesse.\\
+Notre SMC impose la vitesse au moteur thermique. On possède une caractéristique de la consommation fonction de la vitesse et du couple. Connaissant la vitesse du moteur thermique, on peut extraire les consommation correspondant à cette vitesse. Ces consommations sont encore fonction du couple.\\
+On choisit la consommation la plus faible et on en déduit le couple correspondant.\\
+Ce couple n'est autre que notre couple de référence pour le moteur thermique.
+Le moteur électrique nous sert alors à compléter l'apport en puissance nécessaire.\\
 
-On constate l'effet de la stratégie sur la consommation de carburant et l'utilisation de la batterie (Figure \ref{img:liter_optimisation}).\\ On remarque que la batterie est beaucoup sollicitée lorsque cela est possible.\\
+On observe l'effet de la stratégie sur la consommation de carburant et sur l'utilisation de la batterie (Figure \ref{img:liter_optimisation}).\\ On remarque que la batterie est beaucoup sollicitée lorsque cela est possible.\\
 
 \begin{figure}[ht]
 \begin{center}
