@@ -1,0 +1,69 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+\section{\'Equations}	
+\subsection{Chopper}
+$\begin{cases}
+	 U_{chop} &= S_{conv}.U_{batt}\\
+	I_{arm} &= S_{conv}.I_{dcm}
+\end{cases}$
+
+\subsection{Machine à courant continu}
+$\begin{cases}
+	 T_{dcm} &= K_{cfiexc}.I_{dcm}\\
+	E &= K_{cfiexc}.W_{dcm}\\
+	I_{dcm} &= \cfrac{1}{L}\int{U_{ch}-E-R.I_{dcm}}	
+\end{cases}$
+
+\subsection{Boîte de vitesse}
+$\begin{cases}
+	 T_{gear} &= T_{clutch}.K_{gear_{ratio}}.\mu{}_{gear}^{p}\\
+	W_{gearbox} &= W_{pul}.K_{gear_{ratio}}
+\end{cases}$
+
+\subsection{Poulie}
+$\begin{cases}
+	W_pul &= W_{gearbox} = \cfrac{1}{K_p}.W_{dcm} \\
+	T_pul &= (T_{gear}+K_p.T_{dcm}).\mu{}_p^{p}
+\end{cases}$
+
+\subsection{Différentiel}
+$\begin{cases}
+	T_{Wh_R} &= T_{Wh_L} = \cfrac{T_{diff}}{2} \\
+	W_{Wh_R} &= W_{Wh_L} = 2.W_{diff}
+\end{cases}$\\
+~\\
+$\begin{cases}
+	 T_{diff} &= K_{diff}.T_{pul}.\mu{}_{diff}^{p}\\
+	W_pul &= K_{diff}.W_{diff}
+\end{cases}$
+
+\subsection{Roues}
+$\begin{cases}
+	F_{Wh_n} &= \cfrac{T_{Wh_n}}{R_{Wh_n}}  \\
+	W_{Wh_n} &= \cfrac{V_{Wh_n}}{R_{Wh_n}}
+\end{cases}$
+
+\subsection{Châssis}
+$ R_t $ : Rayon de braquage\\
+$ l_ev $ : Largeur véhicule électrique\\
+~\\
+$\begin{cases}
+	V_{L_{Wh}} &= \cfrac{R_t+\cfrac{l_ev}{2}}{R_t}.V_{ev} \\
+	V_{R_{Wh}} &= \cfrac{R_t-\cfrac{l_ev}{2}}{R_t}.V_{ev}\\
+	F_{ev} &= F_{R_{Wh}} + F_{L_{Wh}}
+\end{cases}$\\
+~\\Nous supposons que nous allons toujours tout droit, $ R_t = 0 $.\\
+$\begin{cases}
+	V_{L_{Wh}} &= V_{ev} \\
+	V_{R_{Wh}} &= V_{ev}\\
+	F_{ev} &= F_{R_{Wh}} + F_{L_{Wh}}
+\end{cases}$\\
+~\\
+$\begin{cases}
+	M_{hev}\cfrac{dV_{hev}}{dt} &= F_{hev}-F_{hext} \\
+	V_{hev} &= \cfrac{1}{M_{hev}}\int{(F_{hev}-F_{hext})dt}
+\end{cases}$
+     
+\end{document}
