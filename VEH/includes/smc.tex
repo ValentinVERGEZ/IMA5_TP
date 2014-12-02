@@ -1,8 +1,6 @@
 \section{SMC - Structure maximale de commande}
 Après avoir modélisé le véhicule via sa REM, on peut s'intéresser au contrôle. Une méthode efficace est d'utiliser le contrôle par inversion du modèle.\\
-
 La Structure Maximale de Commande est une représentation unique de la chaîne de commande. Elle est optimale mais est aussi parfois difficile à réaliser en pratique.\\
-
 \subsection{Chaîne de réglage}
 La première chose à faire est d'identifier les variables à régler, appelées variables objectifs.\\
 Dans notre cas, nous nous intéressons uniquement au contrôle de la vitesse du véhicule. La variable objectif est alors $V_{hev}$.\\
@@ -14,14 +12,14 @@ Nos variables de réglages sont :
 \item $F_{brake}$ (Force de freinage mécanique)
 \end{itemize}
 
-Les autres paramètres sont soit fixes soit contrôlés par l'utilisateur directement (exemple de $K_{gear}$, le rapport de la boîte de vitesse).\\
+Les autres paramètres sont soit fixes soit contrôlés par l'utilisateur directement (exemple de $K_{gear}$, le rapport de la boîte de vitesse, contrôlé par l'utilisateur).\\
 
 Nous n'avons pas de variable de contrainte, le moteur électrique étant à aimant permanent. Cette information sera utile pour la partie suivante, la stratégie.\\
 
-%% Chaîne de réglage
+La chaîne de réglage est mise en évidence (en jaune) en Figure \ref{img:REM du VEH} page \pageref{img:REM du VEH} (Annexe \ref{annex}).\\
 
 \subsection{Inversion}
-A partir des équations utilisées pour la REM précédemment, nous pouvons aisément inverser les blocs de la REM.\\
+A partir des équations utilisées précédemment, nous pouvons aisément inverser les blocs de la REM.\\
 
 % Exemple inversion : 
 %\begin{minipage}{.5\textwidth}
@@ -34,10 +32,15 @@ A partir des équations utilisées pour la REM précédemment, nous pouvons ais�
 
 Toutefois, deux blocs posent problèmes. La partie accumulation du châssis ainsi que la partie accumulation du moteur à courant continu. En effet, une fois inversés ils présentent des dérivées ce qui en pratique nous obligerait à connaître l'état futur du système. Cela étant impossible, on remplace ces éléments dérivatifs par des correcteurs (PI ou IP).\\
 
+\newpage
 \subsection{Correction}
-Pour déterminer exactement les paramètres de ces correcteurs, on va développer la fonction de transfert en boucle fermée du système avec correcteur, choisir le comportement du système corrigé puis identifier les paramètres de notre correcteur.\\
+Pour déterminer exactement les paramètres de ces correcteurs, on va développer la fonction de transfert en boucle fermée du système avec correcteur, choisir le comportement du système corrigé puis identifier les paramètres de notre correcteur.\\ Le raisonnement complet était donné dans le sujet pour le correcteur IP du bloc "chassis".\\
 
+Nous avons appliqué la même méthode pour identifier les paramètres des correcteur IP et PI du bloc accumulation de la mcc. Il faut faire attention à la nature du système inversé. Le chassis était un simple intégrateur la ou on retrouve un premier ordre à la mcc.\\
 
+Pour l'identification, nous avons défini le comportement du système une fois bouclé de telle sortes à ce qu'il n'y ait aucun dépassement en réponse à une sollicitation.\\
+
+C'est d'ailleurs exactement le comportement obtenu après simulation. Comme on peut le voir en figure \ref{img:vitesse} où la vitesse ne dépasse pas la consigne après les accélérations.\\
 
 \begin{figure}[ht]
 \begin{center}
