@@ -1,6 +1,80 @@
 \section{Stratégie}
-Stratégie : 
-Rappel de l'intérêt
-Explication du raisonnement en "mode"
-Brève explication du freinage
-Explication détaillée du mode boost
+%Stratégie : 
+%Rappel de l'intérêt
+%Explication du raisonnement en "mode"
+%Brève explication du freinage
+%Explication détaillée du mode boost
+\subsection{Différents modes}
+Précédemment on a pu voir que nos variables de réglages étaient au nombre de trois pour seulement une variable objectif et zéro variable de contrainte.\\
+$V_r - (V_o + V_c) = 2$ \\
+Cela signifie que l'on a de la liberté dans notre commande. On va pouvoir agir sur deux nouveaux paramètres.\\
+
+La stratégie consiste à répartir les flux d'énergie dans le système, dans un but donnée. Ici notre stratégie aura pour but d'économiser l'énergie en jouant sur deux paramètres : la répartition de couple entre le moteur thermique et le moteur électrique (afin d'optimiser le rendement du moteur thermique) ainsi que la répartition entre freinage électrique et freinage mécanique (afin de maximiser la récupération d'énergie sans dépasser les limites de la partie électrique).\\
+
+Pour résumer, nous avons identifier plusieurs mode de fonctionnement du système.\\
+\begin{itemize}
+\item Accélération toute électrique
+\item Accélération toute thermique
+\item Mode boost - Accélération avec apport électrique et thermique
+\item Freinage purement mécanique
+\item Freinage purement électrique (récupération d'énergie)
+\item Freinage combiné mécanique / électrique
+\end{itemize}
+
+
+\begin{algorithm}[H]
+ \KwData{this text}
+ \KwResult{}
+ initialization\;
+ \While{not at end of this document}{
+  read current\;
+  \eIf{understand}{
+   go to next section\;
+   current section becomes this one\;
+   }{
+   go back to the beginning of current section\;
+  }
+ }
+ \caption{Détermination du mode de fonctionnement}
+\end{algorithm}
+
+%function MODE = strategyChoice(N_gearbox, F_trans, SOC, S_conv,I_arm, I_dcm, I_batt)
+% 
+%%%
+%SOC_min = 0.4;
+%SOC_max = 1;
+%I_arm_max = 1e9;
+%Idcm_max = 1e9;
+%I_batt_max = 1e9;
+% 
+%%% 
+%if F_trans < 0
+%    % Recuperation d'energie
+%    if SOC >= SOC_max
+%        % Full mechanical brake
+%        MODE = 7;
+%    elseif abs(S_conv) > 1 || I_arm > I_arm_max || I_dcm > Idcm_max || I_batt > I_batt_max
+%        % Mechanical brake assistance
+%        MODE = 6;
+%    else
+%        % Full electrical brake  
+%        MODE = 5;
+%    end
+%else
+%    % FULL ICE ou FULL DCM ou BOOST
+%    if N_gearbox < 1000
+%        % FULL DCM
+%        MODE = 2;
+%    else
+%        if SOC <= SOC_min
+%            % FULL ICE
+%            MODE = 3;
+%        else
+%            % BOOST
+%            MODE = 4;
+%        end
+%    end
+%end
+%end
+
+\subsection{Le mode boost}

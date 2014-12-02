@@ -29,6 +29,8 @@ A partir des équations utilisées pour la REM précédemment, nous pouvons ais�
 
 %% Exemple inversion
 
-Toutefois, deux blocs posent problèmes. La partie accumulation du châssis ainsi que la partie accumulation du moteur à courant continu. En effet, une fois inversés ils présentent des dérivées 
+Toutefois, deux blocs posent problèmes. La partie accumulation du châssis ainsi que la partie accumulation du moteur à courant continu. En effet, une fois inversés ils présentent des dérivées ce qui en pratique nous obligerait à connaître l'état futur du système. Cela étant impossible, on remplace ces éléments dérivatifs par des correcteurs (PI ou IP).\\
 
 \subsection{Correction}
+Pour déterminer exactement les paramètres de ces correcteurs, on va développer la fonction de transfert en boucle fermée du système avec correcteur, choisir le comportement du système corrigé puis identifier les paramètres de notre correcteur.\\
+\subsubsection{•}
