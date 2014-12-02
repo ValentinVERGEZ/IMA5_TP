@@ -1,15 +1,16 @@
 \section{Conclusion}
 
 \subsection{Le point sur la modélisation, la commande et la stratégie}
-% Si tu pouvais me faire un résumé de deux trois phrases sur SMC et la stratégie
 
-\subsection{Les conditions de test demandées}
+Dans l'ensemble, la conception de la REM et de la SMC se sont déroulées sans problèmes, ce processus étant relativement bien métrié à ce jour. En revanche, la partie concernant la statégie, nous a demandé plus de réflexion. La stratégie étant un aspect de la commande encore nouveau et le cahier des chages nous laissant une totale liberté vis-à-vis de cette partie. Toutefois, nous sommes satisfait du résultat. 
 
-Lors du test de notre véhicule électrique hybride, nous avons utilisé les conditions qui sont actuellement en vigueur pour tester la consommation des voitures. Ces conditions décrite par une directive européenne définissent un cycle de conduite automobile. Et bien que les constructeurs sont dans leur droit, les test de consommation ne représente pas la réalité. En effet ce cycle de conduite a été créé en juillet 1973 et donc conçu pour des voitures de cette époques. Par exemple, les accélérations demandées aux véhicules actuels sont totalement dépassées. Et l'on se retrouve souvent avec une consommation de l'ordre de 20\% supplémentaire en conditions réelles que ce qui est annoncé par le constructeur. Cependant un nouveau cycle de conduite devrait être mis en place durant l'année prochaine. 
+\subsection{Le cycle urbain européen}
+
+Lors du test de notre véhicule électrique hybride, nous avons utilisé les conditions qui sont actuellement en vigueur pour tester la consommation des voitures. Ces conditions décrite par une directive européenne définissent un cycle de conduite automobile. Et bien que les constructeurs soient dans leur droit, les tests de consommation ne représentent pas la réalité. En effet ce cycle de conduite a été créé en juillet 1973 et est donc conçu pour des voitures de cette époque. Par exemple, les accélérations demandées aux véhicules actuels sont totalement dépassées. Et l'on se retrouve souvent avec une consommation de l'ordre de 20\% supplémentaire en conditions réelles que ce qui est annoncé par le constructeur. Cependant un nouveau cycle de conduite devrait être mis en place courant l'année prochaine (2015). 
 
 
 \subsection{Les améliorations que l'on peut apporter}
 
-Comme son nom l'indique, la SMC est la structure maximale de commande, or cette structure comportent deux inconvénient lorsque l'on veut concevoir réellement le système. Tout d'abords le nombre de capteurs utilisés est important . Ce qui entraîne un coût non négligeable. De plus on utilise dans la SMC des variables auxquelles nous n'avons pas accès sur un modèle physique. Par exemple les forces extérieures que l'on mesure dans la simulation ne sont pas mesurable en réalité. \\
+Comme son nom l'indique, la SMC est la structure maximale de commande, or cette structure comporte deux inconvénient lorsque l'on veut concevoir réellement le système. Tout d'abord le nombre de capteurs utilisés est important . Ce qui entraîne un coût non négligeable. De plus on utilise dans la SMC des variables auxquelles nous n'avons pas toujours accès sur un modèle physique. Par exemple les forces extérieures que l'on mesure dans la simulation ne sont pas mesurable en réalité, ou très difficilement. \\
 
-Pour pallier à ces deux problèmes, on doit donc dans un premier temps, trouver un moyen de contourner les variables inaccessibles. On cherche donc à les estimer à l'aide d'autres données du systèmes. Puis dans un second temps, on va essayer de condenser au maximum la SMC afin d'utiliser le moins de capteurs possible (observateurs...). Cette opération complexifie grandement la structure de commande. 
+Pour pallier ces deux problèmes, on doit donc dans un premier temps, trouver un moyen de contourner les variables inaccessibles. On cherche donc à les estimer à l'aide d'autres données du systèmes. Puis dans un second temps, on va essayer de condenser au maximum la SMC afin d'utiliser le moins de capteurs possible (observateurs...). Cette opération complexifie grandement le travail sur la structure de commande. 
