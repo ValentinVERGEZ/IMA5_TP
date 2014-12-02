@@ -8,60 +8,89 @@ Si l'on veut construire la REM d'un système, il faut dans un premier temps écr
 Une fois cette étape réalisée, on construite la REM du sytèmes. Pour cela on décompose le système en sous-systèmes (XXX besoin d'aide pour finir cette phrase correctement)...
 
 \subsection{Chopper}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Chopper.png}
-\end{wrapfigure}
-
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	 U_{chop} &= S_{conv}.U_{batt}\\
 	I_{arm} &= S_{conv}.I_{dcm}
 \end{cases}$
-
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/Chopper.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-20px}
 
 \subsection{Machine à courant continu}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/MCC.png}
-\end{wrapfigure}
-
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	 T_{dcm} &= K_{cfiexc}.I_{dcm}\\
 	E &= K_{cfiexc}.W_{dcm}\\
 	I_{dcm} &= \cfrac{1}{L}\int{U_{ch}-E-R.I_{dcm}}	
 \end{cases}$
-
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/MCC.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-20px}
 
 \subsection{Boîte de vitesse}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Gearbox.png}
-\end{wrapfigure}
-
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	 T_{gear} &= T_{clutch}.K_{gear_{ratio}}.\mu{}_{gear}^{p}\\
 	W_{gearbox} &= W_{pul}.K_{gear_{ratio}}
 \end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/Gearbox.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-20px}
 
-
+\newpage
 \subsection{Poulie}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Pulley.png}
-\end{wrapfigure}
-
+\vspace{-20px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	W_pul &= W_{gearbox} = \cfrac{1}{K_p}.W_{dcm} \\
 	T_pul &= (T_{gear}+K_p.T_{dcm}).\mu{}_p^{p}
 \end{cases}$
-
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=100px]{images/Pulley.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-30px}
 
 \subsection{Différentiel}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Differential.png}
-\end{wrapfigure}
-
+\vspace{-0px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	T_{Wh_R} &= T_{Wh_L} = \cfrac{T_{diff}}{2} \\
 	W_{Wh_R} &= W_{Wh_L} = 2.W_{diff}
@@ -71,24 +100,41 @@ $\begin{cases}
 	 T_{diff} &= K_{diff}.T_{pul}.\mu{}_{diff}^{p}\\
 	W_pul &= K_{diff}.W_{diff}
 \end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/Differential.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-10px}
 
 \subsection{Roues}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Wheel.png}
-\end{wrapfigure}
-
+\vspace{-20px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $\begin{cases}
 	F_{Wh_n} &= \cfrac{T_{Wh_n}}{R_{Wh_n}}  \\
 	W_{Wh_n} &= \cfrac{V_{Wh_n}}{R_{Wh_n}}
 \end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=100px]{images/Wheel.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-30px}
 
+\newpage
 \subsection{Châssis}
-
-\begin{wrapfigure}{r}{10cm}
-\includegraphics[width=0.3\textwidth]{images/Chassis.png}
-\end{wrapfigure}
-
+\vspace{-0px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
 $ R_t $ : Rayon de braquage\\
 $ l_ev $ : Largeur véhicule électrique\\
 ~\\
@@ -108,6 +154,14 @@ $\begin{cases}
 	M_{hev}\cfrac{dV_{hev}}{dt} &= F_{hev}-F_{hext} \\
 	V_{hev} &= \cfrac{1}{M_{hev}}\int{(F_{hev}-F_{hext})dt}
 \end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=100px]{images/Chassis.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-30px}
  
 %Assez scolaire dans le raisonnement, des équations impliquent des blocs, implique la REM
 %On insiste sur l'inversion du rendement selon la puissance.

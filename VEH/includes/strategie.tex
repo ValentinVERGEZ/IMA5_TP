@@ -19,23 +19,39 @@ Pour résumer, nous avons identifier plusieurs mode de fonctionnement du systèm
 \item Freinage purement mécanique
 \item Freinage purement électrique (récupération d'énergie)
 \item Freinage combiné mécanique / électrique
-\end{itemize}
+\end{itemize}~\\
 
-
+Le choix des différents modes est représenté par l'algorithme suivant : \\
 \begin{algorithm}[H]
- \KwData{this text}
- \KwResult{}
- initialization\;
- \While{not at end of this document}{
-  read current\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
- }
- \caption{Détermination du mode de fonctionnement}
+ \KwData{\\
+ $N_{gearbox}$: Vitesse de rotation du moteur (tr/min)\\
+ $F_{trans}$: Force appliquée à la transmission du véhicule\\
+ $SOC$: Pourcentage de charge de la batterie\\
+ $S_{conv}$: Gain du hacheur\\
+ $K_{gear}$: Rapport de la boîte de vitesse\\}
+ \KwResult{Mode de fonctionnement}
+  \eIf{$F_{trans} < 0$}{
+  	Freinage\\
+  	 \uIf{$SOC >= SOC_{max}$ (Batterie pleinement chargée)}{
+	 • Freinage mécanique
+	 }
+	 \uElseIf{$abs(S_{conv}) > 1$}{
+	 • Freinage combiné
+	 }
+	\Else{
+	• Freinage électrique}
+	}
+	{
+	Accélération\\
+	 \uIf{$N_{gearbox} < 1000 \text{ OU } K_{gear} = 0$ (Vitesse trop faible pour le moteur thermique)}{
+	 • Mode électrique
+	 }
+	 \uElseIf{$SOC <= SOC_{min}$}{
+	  •Mode thermique}
+	\Else{
+	• Mode BOOST}
+	}
+ \caption{Détermination du mode de fonctionnement}\label{algo:modes}
 \end{algorithm}
 
 %function MODE = strategyChoice(N_gearbox, F_trans, SOC, S_conv,I_arm, I_dcm, I_batt)
@@ -78,3 +94,20 @@ Pour résumer, nous avons identifier plusieurs mode de fonctionnement du systèm
 %end
 
 \subsection{Le mode boost}
+Parmi ces six modes, quatre consiste à envoyer une consigne binaire. On ne s'attardera pas dessus.\\
+Le mode freinage combiné consiste simplement à utiliser la partie électrique jusqu'à sa limite, on ne détaillera pas plus non ce mode.\\
+
+En revanche le mode boost est lui beaucoup plus intéressant puisqu'il consiste à optimiser le rendement du moteur thermique ce qui n'est pas chose évidente.\\
+Notre idée à été de nous baser sur les caractéristiques de consommation de carburant par kWh en fonction du couple et de la vitesse.\\
+Notre SMC impose la vitesse au moteur thermique, donc de cette caractéristique on peut extraire à une vitesse donnée la caractéristique de consommation en fonction du couple.\\
+On cherche alors la consommation minimale et on retrouve le couple correspondant. C'est alors le couple de référence pour notre moteur thermique, le moteur électrique apportant le reste du couple.\\
+
+On constate l'effet de la stratégie sur la consommation de carburant et l'utilisation de la batterie (Figure \ref{img:liter_optimisation}).\\ On remarque que la batterie est beaucoup sollicitée lorsque cela est possible.\\
+
+\begin{figure}[ht]
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/liter_optimisation}
+	\caption{Concommation de carburant et utilisation de la batterie (avec stratégie)}\label{img:liter_optimisation}
+\end{center}
+\end{figure}
+\FloatBarrier
