@@ -10,7 +10,7 @@ Lors du test de notre véhicule électrique hybride, nous avons utilisé les con
 
 \subsection{Les améliorations que l'on peut apporter}
 
-Comme son nom l'indique, la SMC est la structure maximale de commande, or cette structure comportent deux inconvénient lorsque l'on veut concevoir réellement le système. Tout d'abords le nombre de capteurs utilisés est important . Ce qui entraîne un coût non négligeable. De plus on utilise dans la SMC des variables auxquelles nous n'avons pas accès sur un modèle physique. Par exemple les forces extérieures que l'on mesure dans la simulation ne sont pas mesurable en réalité.\\
+Comme son nom l'indique, la SMC est la structure maximale de commande, or cette structure comportent deux inconvénient lorsque l'on veut concevoir réellement le système. Tout d'abords le nombre de capteurs utilisés est important . Ce qui entraîne un coût non négligeable. De plus on utilise dans la SMC des variables auxquelles nous n'avons pas accès sur un modèle physique. Par exemple les forces extérieures que l'on mesure dans la simulation ne sont pas mesurable en réalité. \\
 
 Pour pallier à ces deux problèmes, on doit donc dans un premier temps, trouver un moyen de contourner les variables inaccessibles. On cherche donc à les estimer à l'aide d'autres données du systèmes. Puis dans un second temps, on va essayer de condenser au maximum la SMC afin d'utiliser le moins de capteurs possible (observateurs...). Cette opération complexifie grandement la structure de commande. 
 
