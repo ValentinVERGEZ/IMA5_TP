@@ -1,24 +1,24 @@
 \section{Introduction}
 
-\subsection{Objectif}
+\subsection{Les objectifs}
 
 	Ce TP consiste à modéliser et contrôler le couplage parallèle thermique-électrique d'un véhicule électrique hybride (VEH). Pour cela, nous allons utiliser la Représentation Énergétique Macroscopique (REM) pour modéliser le système. Puis nous mettrons en place une Structure Maximale de Commande (SMC) afin de contrôler sa vitesse. \\
 	Nous réaliserons aussi une stratégie de commande. Celle-ci aura pour but d'optimiser le rendement énergétique du véhicule.
 
-\subsection{Hypothèses et simplifications}
+\subsection{Les hypothèses et simplifications}
 
 	Le système étant relativement complexe, nous avons formulé plusieurs hypothèses et simplifications. On obtient ainsi un système moins compliqué et suffisamment proche de la réalité pour notre étude. 
 
 \begin{enumerate} 
 \item Les interrupteurs sont considérés comme idéaux.
-\item Les aimants permanents de la machine à courant continu ne saturent pas (XXX).
+\item La machine à aimants pernament ne sature pas.
 \item L'inertie des différents arbres sont négligés.
 \item L'inertie des roues est négligée.
 \item L'adhérence entre la roue et le sol est considéré parfaite. 
 \item L'embrayage fonctionne en tout ou rien (sans glissement).
 \end{enumerate}
 
-\subsection{Contraintes}
+\subsection{Les contraintes}
 	Nous avons considéré l'embrayage comme un "interrupteur" qui transmet ou non le couple fourni par le moteur. Partant de cette simplification, la voiture ne peut donc pas démarrer à partir du moteur thermique. Par conséquent, il faudra démarrer sur le moteur électrique. Une fois que l'on aura atteint une vitesse suffisante (pour ne pas faire caler le moteur), nous pourrons enfin l'utiliser.
 
 \begin{figure}[ht]
@@ -29,11 +29,6 @@
 \end{figure}
 \FloatBarrier 
 
-% XXX je voudrais placer cette image juste après le texte et je n'y arrive pas !!!! VOILA ;-)
-		
+\subsection{La simulation}		
 L'intérêt de la simulation ici est assez simple. On a un véhicule connu, facilement modélisable et le but est d'optimiser sa commande. Il est beaucoup moins coûteux de multiplier les tests en simulation que sur un modèle réel.\\
-De plus la simulation nous permet d'observer certains phénomènes qui sont difficilement accessible sur modèle réel.\\
-La simulation apporte donc un gain surtout de temps et d'argent mais facilite aussi certains tests.\\
-%Véhicule hybride
-%Intérêt de la simulation (coût pour développement de la SMC/Strat)
-%Intérêt de la strat
+De plus la simulation nous permet d'observer certains phénomènes qui sont difficilement accessible sur modèle réel. La simulation apporte donc un gain surtout de temps et d'argent mais facilite aussi certains tests.
