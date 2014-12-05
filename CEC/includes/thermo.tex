@@ -9,13 +9,11 @@
 \item Courant au primaire : XXXXA
 \item Courant au secondaire  : 0A
 \item Température extérieur :  25°C
-\item Tôles : XXXX avec une masse volumique 7700 kg/m3
+\item Tôles : XXXX avec une masse volumique 7700 kg/m3 %nom du mat
 \end{itemize}
 
 
-\subsection{Identification des paramètres pour le calcule  des pertes}
-
-%Tout d'abord, il faut déterminer la valeur des pertres fers totales. Pour cela nous allons caluler cette valeur de deux manière différentes. 
+\subsection{Identification des paramètres pour le calcul des pertes}
 
 Les pertes fer totales sont le résultat des pertes fer statiques et des pertes fer dynamique, qui s'exprime XXX de la façon suivante les pertes fer sont le résultat des pertes fer dynamique et des pertes fer static: \\
 		$ P_{fer\_stat} = P_{hyst}$\\
@@ -25,16 +23,7 @@ L'équation suivante permet de calculer les pertes fer statiques et dynamique. (
 $ P_{fer} = k_h*f*B_{max}^{\alpha} + k_{dyn}*f^2*B_{max}^2$\\
   
 
-
-Nous avons choisi un certain matériau pour faire les taôls il s'agi.
-%Attention la masse volumique des toles est de 7700 kg/m3
- À partir du cylce d'hytérésis des tôles que l'on a choisi, nous allons calculé la courbe moyenne du cycle. Cette action a pour but de simplifier les calculs dans la suite. (XXX Non supporter ???XXX) 
-
-Une fois ce premier point réaliser, on vérifie que l'on ne dépasse pas 1T. On obtient le nouveau $\mu_r$ en utilisant celui que l'on avait calculé précédement et en faisant une regle de 3. Nous pouvons le faire car nous travaillons dans la partie lineaire de la courbe.\\
-
-%schéma courbe ou courbe réelle inserer en parallèle du texte.
-
-
+	À partir du cylce d'hytérésis des tôles que l'on a choisi, nous allons calculé la courbe moyenne du cycle. Cette action a pour but de simplifier les calculs dans la suite. (XXX Non supporter ???XXX) . Une fois ce premier point réaliser, on vérifie que l'on ne dépasse pas 1T. On obtient le nouveau $\mu_r$ correspondant au matériau en utilisant celui que l'on avait calculé précédement et en faisant une simple règle de 3. Cette opération est possible car nous nous trouvons dans la partie lineaire de la courbe.\\
 Ils nous reste maintenant à obtenir les valeurs des différents paramètres  $\alpha$, $k_h$ et $k_{dyn}$\\
 
 À l'aide d'un programme Matlab (XXX), on trouve 
@@ -44,53 +33,57 @@ Ils nous reste maintenant à obtenir les valeurs des différents paramètres  $\
 \item $k_{dyn}$ = 0,000212
 \end{itemize}
 
+On peut donc estimer la valeur des pertes XXX. On trouve des pertes d'environ : 
 
-\subsection{Calcul des pertes dans le transformateur}
 
-Nous allons utliser deux méthodes différentes pour calculer ces pertes. 
+
+\subsection{Calcul des pertes de manière XXX}
+
+Nous allons utiliser deux manières différentes pour arriver à connaitre ces pertes à l'aide du logiciel FEMM.
 
 \subsubsection{À partir de Bmoy}
 
-Pour cette méthode on imposera en permanance 0 au secondaire, et on cnsidera que le flux qui travers le transformateur est équitablement réparti. \\
+	Pour cette méthode on imposera en permanance 0 au secondaire, et on cnsidera que le flux qui travers le transformateur est équitablement réparti. \\
 %XXXLe calcul des pertes a été réalisé avec Bmax le refaire avec BmoyXXX
 
 \begin{figure}[ht]
 	\begin{center}
-	\includegraphics[width=0.3\textwidth]{images/TP3_repartission_Bmoy}
+	\includegraphics[width=0.4\textwidth]{images/TP3_repartission_Bmoy}
 	\caption{Shéma de représenation des zonnes faible flux}\label{img:RepChampsBmoy}
 	\end{center}
 \end{figure}
 \FloatBarrier
 
-
-
 Explication de la méthode : 
-%schémas images portable 
+
 
 Résultat : \\
 pertes = 7,83 W\\
 
 \subsubsection{À partir de Blocal}
-Dans cette partie in découpe la surface du trasformateur en petit élément. Et l'on va calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments. Nous aurrons normalement un résultat plus proche de la réalité cependant les calcules peuvent vite devenir long en fonction de la taille des éléments. ils faut donc trouver un juste compromis entre la précision du résultat et le temps de calcul. 
+
+	Dans cette partie in découpe la surface du trasformateur en petit élément. Et l'on va calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments. Nous aurrons normalement un résultat plus proche de la réalité cependant les calcules peuvent vite devenir long en fonction de la taille des éléments. ils faut donc trouver un juste compromis entre la précision du résultat et le temps de calcul. 
 
 
-%schémas images portable 
+%Maillage
 
 
 \subsubsection{Comparaison des résultats}
+
 La méthode 1 n'est pas proche de la valeur calculée par les éléments\\
 On a l'ordre de grandeur cependant l'ecart entre les deux valeur est important (50\%)\\
 
 Explication de cette différence : \\
 Dans la première méthode nous sommes parti du principe qu'en n'importe quel point du transformateur on avait le même champs. Or lorsque l'on regarde un peu plus précisément on se rend compte qu'il esxite des écarts important entre différentes zonnes.
-Étudions alors l'impact des ces zonnes : dans un premier temps nous allons calculé la surface des zonnes dont le champs est négliable. Soit un rapport de 50 par raport à la zonne max
+Étudions alors l'impact des ces zonnes : dans un premier temps nous allons calculé la surface des zonnes dont le champs est négliable. Soit un rapport de 50 par raport à la zonne max.
 
-\begin{figure}
+\begin{figure}[ht]
 	\begin{center}
-	\includegraphics[width=0.25\textwidth]{images/TP3_zones_mortes}
+	\includegraphics[width=0.4\textwidth]{images/TP3_zones_mortes}
 	\caption{Shéma de représenation des zonnes faible flux}\label{img:RepChamps}
 	\end{center}
 \end{figure}
+\FloatBarrier
 
 Lorsque l'on fait le rapport de ces aires on trouve que les zonnes dont le champs est négligeable représente 22\% de la surface total. On voit donc que l'hypothèse de dépard (approche globale) n'est pas très précise même si elle permet d'avoir une idée générale des pertes.
 
