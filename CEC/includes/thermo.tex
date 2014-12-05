@@ -1,50 +1,59 @@
  
-\section{Étude thermique}
+\section{Étude de pertes et de la thermique}
 
 \subsection{Introduction}
 
-	Dans cette partie, nous allons étudié le transformateur d'un point de vue thermique. En effet le courant passant dans les circuits primaire et secondaire entraînent des pertes. Ces pertes sont responsable de l'échauffement du transforamteur. Dans le meilleur dès cas elles ne provoqueront qu'une diminution des performances du transformateur. Mais dans le pire des cas, elles pourraient entrainer la destructin du transfirmateur. 
-	Les conditions de test seront les suivante : 
+	Dans cette partie, nous allons étudié le transformateur d'un point de vue thermique. En effet le courant passant dans les circuits primaire et secondaire entraînent des pertes. Ces pertes sont responsables de l'échauffement du transformateur. Dans le meilleur des cas elles ne provoqueront qu'une diminution des performances du transformateur. Mais dans le pire des cas, elles pourraient entrainer la destruction de ce dernier. \\
+	Les conditions de test sont les suivantes : 
 |\begin{itemize}
-\item Courant au primaire : XXXXA
-\item Courant au secondaire  : 0A
+\item Courant au primaire : 6,52 A
+\item Courant au secondaire  : 0 A
 \item Température extérieur :  25°C
-\item Tôles : XXXX avec une masse volumique 7700 kg/m3 %nom du mat
+\item Tôles : fer-silicium(3\%) avec une masse volumique 7700 $kg/m^3$
 \end{itemize}
 
 
 \subsection{Identification des paramètres pour le calcul des pertes}
 
-Les pertes fer totales sont le résultat des pertes fer statiques et des pertes fer dynamique, qui s'exprime XXX de la façon suivante les pertes fer sont le résultat des pertes fer dynamique et des pertes fer static: \\
+Les pertes fer totales sont le résultat des pertes fer statiques et des pertes fer dynamiques, qui s'expriment en Watt de la façon suivante :
 		$ P_{fer\_stat} = P_{hyst}$\\
 		$ P_{fer\_dyn} = P_{cf} + P_{exc}$\\
 
-L'équation suivante permet de calculer les pertes fer statiques et dynamique. (XXX provenance de la formule XXX)\\
+L'équation suivante permet de calculer les pertes fer statiques et dynamiques.\\
 $ P_{fer} = k_h*f*B_{max}^{\alpha} + k_{dyn}*f^2*B_{max}^2$\\
   
 
-	À partir du cylce d'hytérésis des tôles que l'on a choisi, nous allons calculé la courbe moyenne du cycle. Cette action a pour but de simplifier les calculs dans la suite. (XXX Non supporter ???XXX) . Une fois ce premier point réaliser, on vérifie que l'on ne dépasse pas 1T. On obtient le nouveau $\mu_r$ correspondant au matériau en utilisant celui que l'on avait calculé précédement et en faisant une simple règle de 3. Cette opération est possible car nous nous trouvons dans la partie lineaire de la courbe.\\
+	À partir du cylce d'hytérésis des tôles que l'on a choisi, nous allons calculé la courbe moyenne du cycle. Cette action a pour but de simplifier les calculs dans la suite. Une fois ce premier point réalisé, on vérifie que l'on ne dépasse pas 1T. On obtient le nouveau $\mu_r$ correspondant au matériau en utilisant celui que l'on avait calculé précédement et en faisant une simple règle de 3. Cette opération est réalisable car nous nous trouvons dans la partie lineaire de la courbe.\\
 Ils nous reste maintenant à obtenir les valeurs des différents paramètres  $\alpha$, $k_h$ et $k_{dyn}$\\
 
-À l'aide d'un programme Matlab (XXX), on trouve 
+À l'aide d'un programme Matlab (fourni), on trouve 
 \begin{itemize}
 \item  $k_h$   = 0,0235
 \item $\alpha$ = 2,104
 \item $k_{dyn}$ = 0,000212
 \end{itemize}
 
-On peut donc estimer la valeur des pertes XXX. On trouve des pertes d'environ : 
+On peut donc estimer la valeur des pertes fer. Concrétement on trouve des pertes d'environ : 1,711 $W/kg$. La masse des tôles du transformateur étant de 4,36 kg on obtient un total de 7,46 W. \\
 
+On cherche maintenant à obtenir la valeur des pertes Joules : \\
+$P_{joules} = R*I^2$ avec I = 6,5 A et R = 1,49 $\Omega$
+On trouve $P_{joules} = 62,95 W$
 
+La chaleur émise par unité de volume par ces deux sources est de : 
+\begin{itemize}
+\item pour les pertes fer cela représente : 13180 $W/m^3$
+\item pour les pertes joules cela représente : 1615078 $W/m^3$
+\end{itemize}
+ 
 
-\subsection{Calcul des pertes de manière XXX}
+\subsection{Estimation des pertes}
 
-Nous allons utiliser deux manières différentes pour arriver à connaitre ces pertes à l'aide du logiciel FEMM.
+Nous allons utiliser trois manières différentes pour arriver à connaitre ces pertes à l'aide du logiciel FEMM. Dans les trois tests nous imposerons un courant nul au secondaire. 
 
-\subsubsection{À partir de Bmoy}
+\subsubsection{À partir de $B_{moy}$}
 
-	Pour cette méthode on imposera en permanance 0 au secondaire, et on cnsidera que le flux qui travers le transformateur est équitablement réparti. \\
-%XXXLe calcul des pertes a été réalisé avec Bmax le refaire avec BmoyXXX
+ Dans ce cas, on considérera que le flux qui travers le transformateur est équitablement réparti. C'est à dire quant tout point du circuit magnétique le champs magnétique et égale au champ moyen dans le circuit magnétique. La valeur moyenne de B étant donnée par le logiciel FEMM. Il ne reste plus qu'à appliquer cette valeur à l'équation dont on a détermié les différents paramètres. \\
+ $ P_{fer} = k_h*f*B_{max}^{\alpha} + k_{dyn}*f^2*B_{max}^2$\\
 
 \begin{figure}[ht]
 	\begin{center}
@@ -54,22 +63,24 @@ Nous allons utiliser deux manières différentes pour arriver à connaitre ces p
 \end{figure}
 \FloatBarrier
 
-Explication de la méthode : 
+On obtient des pertes fer de l'ordre de 8W. 
 
 
-Résultat : \\
-pertes = 7,83 W\\
+\subsubsection{À partir de $B_{max}$}
 
+On effectue la même méthode mais cette fois en appliquant le champs maximal du circuit magnétique donné par FEMM. On obtient des pertes fer de l'ordre de 12,5W.  
+
+
+\subsubsection{À partir de $B_{local}$}
 \vspace{-10px}
 \begin{figure}[ht]
 \centering
 \begin{minipage}{.5\textwidth}  
-Dans cette partie on découpe la surface du trasformateur en petit élément. Et l'on va calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments.
- Nous aurrons normalement un résultat plus proche de la réalité cependant les calcules peuvent vite devenir long en fonction de la taille des éléments. ils faut donc trouver un juste compromis entre la précision du résultat et le temps de calcul. 
+Le principe consiste à ''découper'' la surface du trasformateur en petit élément. Un script va ensuite calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments. Ce résultat devrait être celui qui se rapproche le plus de la réalité. Cependant les calculs peuvent vite devenir long en fonction de la taille des éléments. Ils faut donc trouver un juste compromis entre la précision du résultat et le temps de calcul. 
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
-  \centering
-\includegraphics[height=80px]{images/question-mark}   %Maillage
+ \centering
+\includegraphics[height=250px]{images/TP3_mesh}  
 \end{minipage}
 \end{figure}
 \FloatBarrier
@@ -77,14 +88,13 @@ Dans cette partie on découpe la surface du trasformateur en petit élément. Et
 	
 
 
-\subsubsection{Comparaison des résultats}
+\subsubsection{Comparaison des résultats de $B_{moy}$ et de $B_{local}$}
 
-La méthode 1 n'est pas proche de la valeur calculée par les éléments\\
-On a l'ordre de grandeur cependant l'ecart entre les deux valeur est important (50\%)\\
+On obtient une différence de l'ordre de 50\% entre la méthode avec $B_{moy}$  et la méthode avec $B_{local}$.
 
 Explication de cette différence : \\
-Dans la première méthode nous sommes parti du principe qu'en n'importe quel point du transformateur on avait le même champs. Or lorsque l'on regarde un peu plus précisément on se rend compte qu'il esxite des écarts important entre différentes zonnes.
-Étudions alors l'impact des ces zonnes : dans un premier temps nous allons calculé la surface des zonnes dont le champs est négliable. Soit un rapport de 50 par raport à la zonne max.
+	Dans la première méthode nous sommes parti du principe qu'en n'importe quel point du transformateur on avait le même champs. Or lorsque l'on regarde un peu plus précisément, on se rend compte qu'il existe des écarts important entre différentes zones du circuit magnétique.\\
+Étudions alors l'impact des ces zonnes : dans un premier temps nous allons calculer la surface des zonnes dont le champs est négliable. Soit un rapport de 50 par raport à $B_{max}$.
 
 \begin{figure}[ht]
 	\begin{center}
@@ -94,17 +104,15 @@ Dans la première méthode nous sommes parti du principe qu'en n'importe quel po
 \end{figure}
 \FloatBarrier
 
-Lorsque l'on fait le rapport de ces aires on trouve que les zonnes dont le champs est négligeable représente 22\% de la surface total. On voit donc que l'hypothèse de dépard (approche globale) n'est pas très précise même si elle permet d'avoir une idée générale des pertes.
+Lorsque l'on fait le rapport de ces aires, on trouve que les zonnes dont le champs est négligeable représente environ 22\% de la surface total. On voit donc que l'hypothèse de dépard (approche globale $B_{moy}$) n'est pas très précise même si elle permet d'avoir une idée générale des pertes.
 
 
 \subsection{Température}
 
-Lorsque l'on fait la siulation thermique sous FEMM on se rend comps 
+Lorsque l'on fait la simulation thermique sous FEMM on se rend compte 
 \begin{figure}[ht]
 	\begin{center}
 	\includegraphics[width=0.55\textwidth]{images/TP3_thermo}
 	\caption{Température du transformateur pour un courant au primaire de XXXXA}\label{img:TransfoThermo}
 	\end{center}
 \end{figure}
-
-Limite de FEMM, ce logiciel ne fonctionne qu'en 2D. Dans la réalité, la chaleur pourrait se dispersé dans les toutes les directions et non pas come ici seulement sur un plan. la température serrait donc plus basse. 
