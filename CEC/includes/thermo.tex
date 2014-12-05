@@ -49,7 +49,7 @@ Nous allons utiliser deux manières différentes pour arriver à connaitre ces p
 \begin{figure}[ht]
 	\begin{center}
 	\includegraphics[width=0.4\textwidth]{images/TP3_repartission_Bmoy}
-	\caption{Shéma de représenation des zonnes faible flux}\label{img:RepChampsBmoy}
+	\caption{Shéma de représenation des zones faible flux}\label{img:RepChampsBmoy}
 	\end{center}
 \end{figure}
 \FloatBarrier
@@ -60,12 +60,21 @@ Explication de la méthode :
 Résultat : \\
 pertes = 7,83 W\\
 
-%mini page !!!
-	Dans cette partie on découpe la surface du trasformateur en petit élément. Et l'on va calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments.
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+Dans cette partie on découpe la surface du trasformateur en petit élément. Et l'on va calculer les pertes fer à partir du flux qui passe dans chacuns de ces éléments.
  Nous aurrons normalement un résultat plus proche de la réalité cependant les calcules peuvent vite devenir long en fonction de la taille des éléments. ils faut donc trouver un juste compromis entre la précision du résultat et le temps de calcul. 
-
-
-%Maillage
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/question-mark}   %Maillage
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{20px}
+	
 
 
 \subsubsection{Comparaison des résultats}
@@ -93,8 +102,8 @@ Lorsque l'on fait le rapport de ces aires on trouve que les zonnes dont le champ
 Lorsque l'on fait la siulation thermique sous FEMM on se rend comps 
 \begin{figure}[ht]
 	\begin{center}
-	\includegraphics[width=0.25\textwidth]{images/TP3_zones_mortes}
-	\caption{Shéma de représenation des zonnes faible flux}\label{img:RepChamps}
+	\includegraphics[width=0.55\textwidth]{images/TP3_thermo}
+	\caption{Température du transformateur pour un courant au primaire de XXXXA}\label{img:TransfoThermo}
 	\end{center}
 \end{figure}
 
