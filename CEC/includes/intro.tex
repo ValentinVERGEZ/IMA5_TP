@@ -3,20 +3,17 @@
 
 \subsection{Un transformateur c'est quoi ? }
 	
-	Un transformateur monophasé est un convertisseur « alternatif-alternatif » qui permet de modifier l'amplitude d'une tension alternative en maintenant sa fréquence et sa forme inchangées. Le transport d'énergie électrique sur de grandes distances serait impossible sans transformateurs. En effet grâce aux transformateurs élévateurs de tension, on transporte des ''volts'' plutôt que des ''ampères'', limitant les pertes d'énergie à quelques pourcents. De plus les transformateurs sont des machines électriques statiques, l'absence de mouvement est d'ailleurs à l'origine de leur excellent rendement. Les transformateurs couvrent toutes les gammes de puissances et de tensions, de quelques VA, à basse tension pour l'alimentation de circuits électroniques à quelques centaines de MVA et de kV pour l'alimentation ou le couplage des réseaux de transport de l'énergie électrique. 
-	
-	%%% Revoir la dernière phrase XXX (J'ai un peu revu (VVE))
+	Un transformateur monophasé est un convertisseur « alternatif-alternatif » qui permet de modifier l'amplitude d'une tension alternative en maintenant sa fréquence et sa forme inchangée. Sans lui le transport d'énergie électrique sur de grandes distances serait impossible. En effet grâce aux transformateurs élévateurs de tension, on transporte des ''volts'' plutôt que des ''ampères'', limitant ainsi les pertes d'énergie à quelques pourcents. De plus, les transformateurs sont des machines électriques statiques. L'absence de mouvement est d'ailleurs à l'origine de leur excellent rendement. Les transformateurs couvrent toutes les gammes de puissances et de tensions, de quelques VA pour l'alimentation de circuits électroniques, à quelques centaines de MVA pour l'alimentation ou le couplage des réseaux électrique. 
 
 \subsection{La constitution d'un transformateur}
 	
-	Un transformateur électrique se compose de tôles ferromagnétiques et de bobinages. Les tôles constituent le circuit magnétique du transformateurs. Dans le milieu industriel, elles sont généralement de forme "E-I". %% Voir d'autres formes possibles
-	%%% Revoir la phrase : manque d'informations sur les types de tôles
- Les enroulements sont ensuite bobinés autour du noyau du circuit magnétique. Dans notre cas, un transformateur monophasé est constitué de deux bobinages, un primaire et un secondaire. 
- 	%%% Voir figure XXX
-Le circuit magnétique permet de "connecter"  magnétiquement le circuit primaire au secondaire en canalisant les lignes de champs magnétiques produites par le primaire.
+	Un transformateur électrique se compose de tôles ferromagnétiques et de bobinages. Les tôles constituent le circuit magnétique du transformateurs. Dans le milieu industriel, elles sont généralement de forme "E-I". 
+	Les enroulements sont ensuite bobinés autour du noyau du circuit magnétique. Dans notre cas, un transformateur monophasé est constitué de deux bobinages, un primaire et un secondaire. 
 
-	%%% La photo n'est pas la bonne. Cependant j'ai un problème de placement de l'image, je la voudrais juste en dessous du paragraphe...	
-	%%% Image placée (VVE)
+ 	%%% Voir figure XXX
+ 	
+	Le circuit magnétique permet de "connecter"  magnétiquement le circuit primaire au secondaire en canalisant les lignes de champs magnétiques produites par le primaire.
+
 \begin{figure}[ht]
 	\begin{center}
 	\includegraphics[width=0.2\textwidth]{images/TP_intro_transfo}
@@ -28,10 +25,4 @@ Le circuit magnétique permet de "connecter"  magnétiquement le circuit primair
 
 \subsection{Objectifs}
 Le but de ce TP est de réaliser le dimensionnement d'un transformateur monophasé selon un cahier des charges donné puis de critiquer sa validité.\\
-Le dimensionnement sera optimisé pour obtenir le transformateur le plus léger possible. On validera ensuite le modèle sur FEMM, un logiciel de simulation 2D par éléments finis. Enfin nous finirions par une étude thermique du transformateur, afin de valider ou non notre choix d'optimisation.\\
-	%%% Revoir la dernière phrase XXX
-	%%% Revue (VVE)
-
-
-%%% Sinon intro sur une page je pense que l'on est bon ?? 
-%%% Oui pour moi c'est pas mal (une fois les commentaires résolus). Idéalement il ne faudrait pas dépasser la page (VVE)
+Le dimensionnement sera optimisé pour obtenir le transformateur le plus léger possible. On validera ensuite le modèle sur FEMM, un logiciel de simulation 2D par éléments finis. Enfin, nous finirions par une étude thermique du transformateur, afin de confirmer ou non notre choix d'optimisation.\\
