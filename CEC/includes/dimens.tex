@@ -1,49 +1,54 @@
 \section{Dimensionnement sans optimisation}
 \subsection{Cahier des charges}
 Nous allons réaliser le dimensionnement d'un transformateur monophasé, c'est à dire déterminer la section de son noyau, la section de la fenêtre des bobinages, le nombre de spires et la section du fil de cuivre pour les enroulements primaires et secondaires.\\
-On retrouve en Figure \ref{img:cotesTransfo} le dessin du transformateur avec les côtes.\\
+On retrouve en Figure \ref{img:cotesTransfo} le dessin du transformateur avec ses côtes.\\
 
-\begin{figure}
+\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/dessin_init_transfo.jpg}
+	\includegraphics[width=0.5\textwidth]{images/dessin_init_transfo.jpg}
 	\caption{Côtes du transformateur}\label{img:cotesTransfo}
 	\end{center}
 \end{figure}
-\FloatBarrier 
+\FloatBarrier
 
-Nous allons suivre le cahier des charges suivant : \\
+Nous allons suivre le cahier des charges suivant : \\~\\
 \begin{tabular}{l l}
- - $V_1 = 230 V$	&(Tension primaire nominale)\\
- - $V_2 = 127 V$	&(Tension secondaire nominale)\\
- - $S = 1500 VA$	&(Puissance nominale nominale)\\
- - $J_{max} = 5 A/mm^2$	&(Densité de courant maximale)\\
- - $f = 50Hz$		&(Fréquence de fonctionnement)\\
- - $K_v = \cfrac{2\Pi}{\sqrt{2}}$	&(Facteur de forme, onde sinusoïdale)\\
- - $K_u = 0,8 $	&(Coefficient de remplissage de la fenêtre de bobinage)\\
- - $B_{max} = 1T$	&(Induction maximale)
+ $\bullet $ $V_1 = 230 V$	&(Tension primaire nominale)\\
+ $\bullet $ $V_2 = 127 V$	&(Tension secondaire nominale)\\
+ $\bullet $ $S = 1500 VA$	&(Puissance nominale nominale)\\
+ $\bullet $ $J_{max} = 5 A/mm^2$	&(Densité de courant maximale)\\
+ $\bullet $ $f = 50Hz$		&(Fréquence de fonctionnement)\\
+ $\bullet $ $K_v = \cfrac{2\Pi}{\sqrt{2}}$	&(Facteur de forme, onde sinusoïdale)\\
+ $\bullet $ $K_u = 0,8 $	&(Coefficient de remplissage de la fenêtre de bobinage)\\
+ $\bullet $ $B_{max} = 1T$	&(Induction maximale)
 \end{tabular}
+
+	%%% Court, mais pour moi suffisant (VVE)
 
 \subsection{Équation de dimensionnement}
 $ Sfer = \cfrac{2S}{K_u.K-v.f.B_{max}.J_{max}.W_a}$
 
+	%%% Idéalement à justifier (préparation du TP, feuile imprimée en salle info)(VVE)
+
 \subsection{Hypothèses et résultats}
 Nous avons une équation pour trois inconnus : b, H ($b.H = S_{fer}$) et hf ($\frac{b}{2}.hf = W_a$).\\
 Premièrement nous allons fixer définitivement une forme de noyau ferromagnétique. Le noyau sera carré et ainsi $b = H$.\\
-Et pour cette première partie nous allons fixer la section de fenêtre des bobinages, $W_a = 2\times{}10^{-3} m²$.\\
+Puis, pour cette première partie, nous allons fixer la section de fenêtre des bobinages, $W_a = 2\times{}10^{-3} m²$.
 Maintenant le problème ne présente plus qu'une unique solution.\\
 
+\newpage
 Après la résolution, nous obtenons les résultats suivants : \\
 \begin{itemize}
 \item $S_{fer} = 0,0017 m² $
 \item $b = 0,0411 m $
 \item $H = 0,0411 m $
 \item $hf = 0,0974 m $
-\end{itemize}
+\end{itemize}~\\
 
-Cela donne le dessin de transformateur suivant :\\
-\begin{figure}
+Cela donne le dessin de transformateur suivant :
+\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/TP1_transfo_carre}
+	\includegraphics[width=0.4\textwidth]{images/TP1_transfo_carre}
 	\caption{Dessin du transformateur dimensionné sans optimisation}\label{img:dessinTransfoCarre}
 	\end{center}
 \end{figure}
@@ -56,37 +61,40 @@ Dans ce cas de figure nous avons les volumes et masses suivantes : \\
 \item $M_{fer} = 4,22 kg$
 \item $M_{cuivre} = 3,27 kg $
 \item $M_{totale} = 7,49 kg $
-\end{itemize}
+\end{itemize}~\\
 
+\newpage
 \section{Dimensionnement avec optimisation du poids}
 \subsection{Nouvelles côtes}
 Nous avons fait un premier dimensionnement en fixant arbitrairement la section  de la fenêtre des bobinages. Maintenant nous pouvons la déterminer par optimisation du poids du transformateur.\\
 Cette fois-ci nous allons faire la résolution pour des sections de fenêtre allant de $0,1\times{}10^{-3} m²$ à $3\times{}10^{-3} m²$.\\
 
 Voici l'évolution des masses obtenues : 
-\begin{figure}
+\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/TP1_plot_masses}
+	\includegraphics[width=0.5\textwidth]{images/TP1_plot_masses}
 	\caption{Courbes des masses en fonction de la fenêtre de bobinage}\label{img:plotMasses}
 	\end{center}
 \end{figure}
 \FloatBarrier 
 
-Nous choisissons donc la section apportant la masse la plus faible et après la résolution de l'équation de dimensionnement, nous obtenons les côtes suivantes : \\
+Nous choisissons donc la section apportant la masse la plus faible. C'est une méthode de résolution itérative.\\
+Après la résolution de l'équation de dimensionnement, nous obtenons les côtes suivantes : \\
 \begin{itemize}
 \item $S_{fer} = 0,0019 m² $
 \item $b = 0,043 m $
 \item $H = 0,043 m $
 \item $hf = 0,0831 m $
 \item $W_a = 1,8\times{}10^{-3} m² $
-\end{itemize}
+\end{itemize}~\\
 
 On constate que la section de fenêtre des bobinage est légèrement inférieure au dimensionnement précédent tandis-que la section du noyau ferromagnétique a elle augmenté.\\
 
+\newpage
 Cela donne le dessin de transformateur suivant :\\
-\begin{figure}
+\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/TP1_transfo_poids}
+	\includegraphics[width=0.5\textwidth]{images/TP1_transfo_poids}
 	\caption{Dessin du transformateur dimensionné avec optimisation du poids}\label{img:dessinTransfoPoids}
 	\end{center}
 \end{figure}
@@ -99,14 +107,20 @@ Dans ce cas de figure nous avons les volumes et masses suivantes : \\
 \item $M_{fer} = 4,366 kg$
 \item $M_{cuivre} = 3,099 kg $
 \item $M_{totale} = 7,465 kg $
-\end{itemize}
+\end{itemize}~\\
 
 La masse ainsi obtenue n'est que légèrement plus faible mais elle est optimale. Le volume de cuivre (matériau plus dense que le fer) a été diminué. Il reste à voir si notre transformateur le plus léger est bien conforme à notre cahier des charges.\\
 
 \subsection{Dimensionnement des bobinages}
 
+	%%% A faire : je n'arrive pas à comprendre d'où viennent nos équations.
+	%%% Surtout celle-ci : n2 = ((Ku*Wa(i))/s1) * 1/((V1/V2)+(s2/s1)); (Voir MatLab)
+	%%% Bref, HELP ! :O (VVE)
+
 \subsection{Validation du modèle}
 Maintenant que nous avons dimensionner
+
+	%%% A finir (calculs des éléments du modèles, courant équivalent, commentaire du résultat -> B = 1T) (VVE)
 
 \begin{figure}
 	\begin{center}
