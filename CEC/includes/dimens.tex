@@ -23,46 +23,12 @@ Nous allons suivre le cahier des charges suivant : \\~\\
  $\bullet $ $B_{max} = 1T$	&(Induction maximale)
 \end{tabular}
 
+	%%% Court, mais pour moi suffisant (VVE)
 
 \subsection{Équation de dimensionnement}
+$ Sfer = \cfrac{2S}{K_u.K-v.f.B_{max}.J_{max}.W_a}$
 
-
-Démonstration de la formule suivante : $ Sfer = \cfrac{2S}{K_u.K-v.f.B_{max}.J_{max}.W_a}$
-
-Pour étudier le phénomène, appliquons la loi de Faraday qui donne la f.é.m. aux bornes du circuit : 
-
-$e = n= \cfrac{d\varphi(t)}{dt}$
-
-Si on néglige la résistance du circuit, ainsi que les fuites de flux, la source v compensera à chaque instant cette f.é.m. : 
-$s = e = V_{max}\sin(\omega{}t) = n\cfrac{d\varphi(t)}{dt}$
-
-On peut calculer le flux créé par le circuit à l'interieur du noyau par intégration :
-$\varphi(t) = \int {\cfrac{V_{max}}{n} \sin(\omega{}t) dt} = \cfrac{V_{max}}{n\omega}\cos((\omega{}t)) + \varphi_0$
-
-La constante d'intégration $\varphi_0$ peut correspondre à la présence d'un aimant epermanent, à l'existance d'un flux rémanent ou encore à la présence d'un autre enroulement alimenté en courant continu. 
-
-Dans notre cas, nous considerons que $\phi_0 = 0$
-
-$\varphi(t) = - \cfrac{V_{max}}{n\omega} \cos(\omega{}t) = \cfrac{V_{max}}{n\omega} \sin(\omega{}t - \cfrac{\Pi}{2}$
-
-Le déphasage de $- \cfrac{\Pi}{2}$ indique que le flux est en quadrature retard sur la tension $v =  V_{max}\sin(\omega.t)$
-
-D'après la relation $n\varphi = Li$, on en déduit que le courant passant dans la bobine s'écrit : 
-
-$i = \cfrac{V_{max}}{L\omega} \sin(\omega{}t - \cfrac{\Pi}{2}$, on retrouve la définition de l'impédance d'une bobine parfait : $Z = L\omega$
-
-Si la section est constante, le champ B dans le noyau vaut : 
-
-$B(t) =  \cfrac{\varphi(t)}{S} = \cfrac{V_{max}}{n\omega S}\sin(\omega{}t - \cfrac{\Pi}{2}$
-
-On voit que la valeur maximale de ce champ est reliée à la valuer efficace de la f.é.m. par la relation :
-
-$B_{max} =  \cfrac{V_{max}}{n\omega S} = \cfrac{sqrt{2}V_{eff}}{n 2\Pi f S}$ que l'on peut écrire : 
-
-$V_{eff} = 4.44 n f S B_{max} = 4.44 n f \phi_{max}$
-
-On appelle cette relation formule de Boucherot. Cette expression montre que la valeur maximale du flux $\phi_{max}$ ne dépend que de la valuer efficace $V_{eff} $ de la tension d'alimentation (à fréquence constante). La tension d'alimentation impose le flux et l'enroulement appelle un courant en conséquence. 
-
+	%%% Idéalement à justifier (préparation du TP, feuile imprimée en salle info)(VVE)
 
 \subsection{Hypothèses et résultats}
 Nous avons une équation pour trois inconnus : b, H ($b.H = S_{fer}$) et hf ($\frac{b}{2}.hf = W_a$).\\
@@ -71,7 +37,7 @@ Puis, pour cette première partie, nous allons fixer la section de fenêtre des 
 Maintenant le problème ne présente plus qu'une unique solution.\\
 
 \newpage
-Après la résolution via un algorithme Matlab, nous obtenons les résultats suivants : \\
+Après la résolution, nous obtenons les résultats suivants : \\
 \begin{itemize}
 \item $S_{fer} = 0,0017 m² $
 \item $b = 0,0411 m $
@@ -122,7 +88,7 @@ Après la résolution de l'équation de dimensionnement, nous obtenons les côte
 \item $W_a = 1,8\times{}10^{-3} m² $
 \end{itemize}~\\
 
-On constate que la section de fenêtre des bobinages est légèrement inférieure au dimensionnement précédent tandis-que la section du noyau ferromagnétique a elle augmenté.\\
+On constate que la section de fenêtre des bobinage est légèrement inférieure au dimensionnement précédent tandis-que la section du noyau ferromagnétique a elle augmenté.\\
 
 \newpage
 Cela donne le dessin de transformateur suivant :\\
@@ -146,11 +112,15 @@ Dans ce cas de figure nous avons les volumes et masses suivantes : \\
 La masse ainsi obtenue n'est que légèrement plus faible mais elle est optimale. Le volume de cuivre (matériau plus dense que le fer) a été diminué. Il reste à voir si notre transformateur le plus léger est bien conforme à notre cahier des charges.\\
 
 \subsection{Dimensionnement des bobinages}
-
-	
+Pour déterminer le nombre de spires nécessaire, nous allons exprimer $n_2$ en fonction de $W_a$, $K_u$ et $s_2$ qui sont des variables connues.\\
+Comme $ m = \cfrac{V_2}{V_1} = \cfrac{n_2}{n_1} = \cfrac{I_1}{I_2} = \cfrac{J.s_1}{J.s_2}$ \\
+On a $ \cfrac{n_2}{n_1} = \cfrac{s_1}{s_2} $, soit $ n_2.s_2 = n_1.s_1 $.\\
+Partant de là, on peut en déduire que $n_1 = \cfrac{W_a.K_u}{s_1.2}$ et $n_2 = \cfrac{W_a.K_u}{s_2.2}$\\
+Ce qui nous donne en pratique : $n_1 = 305$ et $n_2 = 552$. Et assez logiquement, le rapport $\cfrac{W_a}{W_p}=0.5$.
 	
 	%%% A faire : je n'arrive pas à comprendre d'où viennent nos équations.
 	%%% Surtout celle-ci : n2 = ((Ku*Wa(i))/s1) * 1/((V1/V2)+(s2/s1)); (Voir MatLab)
+	%%% Bref, HELP ! :O (VVE)
 
 \subsection{Validation du modèle}
 Maintenant que nous avons dimensionner
