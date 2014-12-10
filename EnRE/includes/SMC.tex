@@ -1,5 +1,10 @@
  
 \section{Établissement de la commande}
+Initialement, ce qui nous intéresse c'est le contrôle de la vitesse de rotation de la pompe. Nous avons une variable objectif.\\
+Comme nous n'avons pas de contraintes (excitation nécessaire du moteur à courant continu par exemple) et que nous avons deux variables de réglages (le hacheur série et le hacheur parallèle), nous pouvons dire que nous avons un degré de liberté.\\
+Il peut donc être intéressant de contrôler aussi la tension en sortie des panneaux photovoltaïques, nous donnant ainsi la possibilité d'optimiser leur rendement.\\
+
+\subsection{La structure maximale de commande}
 Les équations des bocs à inverser sont les suivantes : \\
 $ \bullet $ \textbf{Bus continu :} $I_L = I_{pv} - \cfrac{U_c}{R_c} \underbrace{- C\cfrac{dU_c}{dt}}_\text{} $\\
 $ \bullet $ \textbf{Filtre PV :} $U_{hp} = U_C - R_LI_L \underbrace{- L\cfrac{dI_L}{dt}}_\text{} $\\
@@ -12,12 +17,7 @@ $ \bullet $ \textbf{Inertie arbre :} $C_{mcc} = C_{pertes} + C_{pompe} \underbra
 
 Les quatre parties soulignées sont les composantes dérivatives de certaines des équations. En simulation, comme sur un système réel, cette inversion sera impossible à réaliser car il nous faudrait connaître l'état futur de la dérivée.\\
 Pour contourner ce problème, l'inversion de ces parties sera remplacée par des correcteurs (IP ou PI).\\
-\subsection{La structure maximale de commande}
-
-\subsubsection{Partie amont de la REM}
-%Pas sûr du titre XXX
-
-\subsubsection{Partie aval de la REM}
-%Pas sûr du titre XXX
 
 \subsection{Les correcteurs}
+Pour déduire les correcteurs à utiliser, le principe consiste à calculer la fonction de transfert en boucle fermé du bloc à inverser avec correcteur (PI ou IP). On obtient alors des fonctions de transferts du second ordre dont on va choisir le comportement (dépassement et temps de réponse). Il nous suffit alors de faire une identification des paramètres des correcteurs dans les fonctions de transferts obtenues.\\
+Pour nous faciliter la tâche, des blocs automatisant cette résolution nous ont été fournis. Il ne nous restait qu'à y définir le comportement de nos systèmes corrigés.\\
