@@ -1,6 +1,17 @@
  
 \section{Établissement de la commande}
+Les équations des bocs à inverser sont les suivantes : \\
+$ \bullet $ \textbf{Bus continu :} $I_L = I_{pv} - \cfrac{U_c}{R_c} \underbrace{- C\cfrac{dU_c}{dt}}_\text{} $\\
+$ \bullet $ \textbf{Filtre PV :} $U_{hp} = U_C - R_LI_L \underbrace{- L\cfrac{dI_L}{dt}}_\text{} $\\
+$ \bullet $ \textbf{Hacheur parallèle :} $m_{hp} = \cfrac{U_{hp}}{U_{batt}.\eta{}_{hp}} $\\
+$ \bullet $ \textbf{Hacheur série :} $m_{hs} = \cfrac{U_{hs}}{U_{batt}.\eta{}_{hs}} $\\
+$ \bullet $ \textbf{Inductance mcc :} $U_{hs} = E + R.I_{mcc} \underbrace{+ L\cfrac{dI_{mcc}}{dt}}_\text{} $\\
+$ \bullet $ \textbf{MCC :} $I_{mcc} = \cfrac{C_{mcc}}{K_{em}} $\\
+$ \bullet $ \textbf{Inertie arbre :} $C_{mcc} = C_{pertes} + C_{pompe} \underbrace{+ J\cfrac{dW_{arbre}}{dt}}_\text{}$\\
 
+
+Les quatre parties soulignées sont les composantes dérivatives de certaines des équations. En simulation, comme sur un système réel, cette inversion sera impossible à réaliser car il nous faudrait connaître l'état futur de la dérivée.\\
+Pour contourner ce problème, l'inversion de ces parties sera remplacée par des correcteurs (IP ou PI).\\
 \subsection{La structure maximale de commande}
 
 \subsubsection{Partie amont de la REM}
@@ -10,5 +21,3 @@
 %Pas sûr du titre XXX
 
 \subsection{Les correcteurs}
-
-
