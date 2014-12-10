@@ -144,26 +144,24 @@ $\begin{cases}
 
 \subsection{La vérification du comportement}
 
-Pour vérifier le comportement du système nous avons ''découpé'' le système en deux sous-système. Le premier allant des panneaux solaires jusqu'à la batterie. Le second de la batterie jusqu'à la pompe. Dans cette seconde parte nous avions remplacer la batterie par un bloc constant égal à la tension maximale de la batterie. 
-% Si tu te souviens de quelque chose genre vérifiacation des courants / tension ou autres
+Pour vérifier le comportement du système nous avons "découpé" le système en deux sous-systèmes. Le premier allant des panneaux solaires jusqu'à la batterie. Le second de la batterie jusqu'à la pompe. Dans cette seconde partie nous avions remplacer la batterie par un bloc constant égal à la tension maximale de la batterie.\\
+Nous nous sommes bien assurés que la puissance en entrée était, au rendement prêt, la puissance de sortie. Et nous avons aussi vérifié la cohérence des grandeurs.\\
+% Si tu te souviens de quelque chose genre vérifiacation des courants / tension ou autres - (VVE) : J'ai blablaté ce que je pouvais sur les vérifs de puissance
 
-
-Lors du test de l'ensemble du système, on remarque qu'au démarrage, la tension au niveau de la batterie chute. En effet, c'est à ce moment que la motopompe démarre et que l'irradianceest faible (fonction rampe). La motopompe demande plus d'energie que peuvent fournir les panneaux lors des premières secondes de simulations. Cependant au bout qu'une dizaine de seconde, on voit la tension remonté ce qui signifie que la puissance délivré par les panneaux photovoltaïques est supérieure à celle utilisée par la pompe. Le rôle de la batterie est très important car elle permet l'utilisation de la pompe même si l'irradiance n'est pas assez forte (utilisation limité en fonction de la capacité de la batterie). 
+Lors du test de l'ensemble du système, on remarque qu'au démarrage, la tension au niveau de la batterie chute. En effet, c'est à ce moment que la motopompe démarre et que l'irradiance est faible (nous la simulons par une rampe). La motopompe demande plus d’énergie que peuvent fournir les panneaux lors des premières secondes de simulation.\\
+Cependant au bout qu'une dizaine de seconde, on voit la tension remonter ce qui signifie que la puissance délivrée par les panneaux photovoltaïques est supérieure à celle utilisée par la pompe. Le rôle de la batterie est très important car elle permet l'utilisation de la pompe même si l'irradiance n'est pas assez forte (sous réserve que la batterie soit assez chargée). 
 
 \begin{figure}[ht]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/Niveau_batt.png}
+	\includegraphics[width=0.5\textwidth]{images/Niveau_batt_inv.png}
 	\caption{Évolution du niveau de la batterie au cours d'une simulation}\label{img:NivBatt}
 	\end{center}
 \end{figure}
 \FloatBarrier 
 
 
-
-
 \subsection{Estimation du rendement}
-
-La REM facilite le calcul de puissance, puisqu'il suffit de multiplier les entrées ou sorties d'un bloc pour avoir la puissance en entrée ou en  sortie de celui-ci. À l'aide de simulink, on messure les puissance en sortie de la batterie et en entrée de la motopompe. On obtient un rendement de 73\%.
+La REM facilite le calcul de puissance, puisqu'il suffit de multiplier les entrées ou sorties d'un bloc pour avoir la puissance en entrée ou en  sortie de celui-ci. À l'aide de simulink, on mesure les puissances en sortie de la batterie et en entrée de la motopompe. On obtient alors un rendement de 73\%.
 
 
 
