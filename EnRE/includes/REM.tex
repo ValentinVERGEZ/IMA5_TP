@@ -24,8 +24,6 @@ $\begin{cases}
 \FloatBarrier
 \vspace{-20px}
 
-
-
 \subsection{Filtre PV}
 %XXX
 \vspace{-10px}
@@ -45,7 +43,6 @@ $\begin{cases}
 \end{figure}
 \FloatBarrier
 \vspace{-20px}
-
 
 \subsection{Hacheur parallèle}
 %XXX
@@ -67,7 +64,6 @@ $\begin{cases}
 \FloatBarrier
 \vspace{-20px}
 
-
 \subsection{Batteries}
 %XXX
 \vspace{-10px}
@@ -87,7 +83,6 @@ $\begin{cases}
 \end{figure}
 \FloatBarrier
 \vspace{-20px}
-
 
 \subsection{Hacheur série}
 %XXX
@@ -109,12 +104,52 @@ $\begin{cases}
 \FloatBarrier
 \vspace{-20px}
 
+\subsection{Machine à courant continu}
+%XXX
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
+$\begin{cases}
+	 T_{dcm} &= K_{cfiexc}.I_{dcm}\\
+	E &= K_{cfiexc}.W_{dcm}\\
+	I_{dcm} &= \cfrac{1}{L}\int{U_{ch}-E-R.I_{dcm}}	
+\end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/MCC.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-20px}
 
-
-
+\subsection{Arbre moteur}
+%XXX
+\vspace{-10px}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{.5\textwidth}  
+\centering
+$\begin{cases}
+	 U_{chop} &= S_{conv}.U_{batt}\\
+	I_{arm} &= S_{conv}.I_{dcm}
+\end{cases}$
+\end{minipage}~
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[height=80px]{images/arbre.png}
+\end{minipage}
+\end{figure}
+\FloatBarrier
+\vspace{-20px}
 
 
 \subsection{La vérification du comportement}
+%XXX méthode pour vérifier le comportement d'une partie du système
+%XXX Même chose pour l'autre partie
+%XXX Fonctionnement général
 
 
 
