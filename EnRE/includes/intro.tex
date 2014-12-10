@@ -1,0 +1,25 @@
+\section{Introduction}
+\subsection{Le contexte}
+
+De nombreuses populations dans les zones rurales des pays en voie de développement rencontrent des problèmes d’approvisionnement en eau potable. La recherche de nouveaux procédés pour améliorer les con-ditions de vie dans ces zones est donc relativement importante. Le pompage photovoltaïque représente à l’heure actuelle la meilleure des solutions pour l’approvisionnement en eau.
+
+Deux systèmes de pompage photovoltaïque sont utilisés à ce jour : avec et sans batteries. La technologie sans batteries, également connue sous le nom de « pompage au fil du soleil », a l’avantage d’avoir un meil-leur rendement (utilisation d’un seul convertisseur) pour un coût réduit (pas de batterie). Son inconvénient principal est d’avoir un débit d’eau qui dépend des fluctuations de l’ensoleillement au cours de la journée. Le système avec batterie a pour avantage de pouvoir pomper l’eau à débit constant, même lorsqu’il n’y a plus de soleil (durant la nuit par exemple). Il est néanmoins beaucoup plus cher et requiert l’entretien des batteries.
+
+
+\subsection{La description du système}
+
+Le système se compose de panneaux PV, d’un bus continu, d’un filtre monophasé, d’un hacheur parallèle, de batteries, d’un hacheur série et d’un groupe motopompe 
+
+\begin{figure}[ht]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{images/Systeme.png}
+	\caption{Représentation schématique du système}\label{img:Schéma système EnRE}
+	\end{center}
+\end{figure}
+\FloatBarrier 
+
+
+\subsection{Les objectils}
+
+Ce TP consiste à modéliser et contrôler le pompage d'eau souterraines installé dans un village. Pour cela, nous allons utiliser la Représentation Énergétique Macroscopique (REM) pour modéliser le système. Puis nous mettrons en place une Structure Maximale de Commande (SMC) afin de contrôler sa vitesse.
+	La stratégie de commande sera réalisé par un bloc MPPT, qui permettera de tirer un maximum de puissance des panneaux photovoltaïques. 
