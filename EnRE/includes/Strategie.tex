@@ -2,14 +2,19 @@
 \section{La stratégie}
 
 \subsection{La commande MPPT}
-Un Maximum Power Point Tracking (dispositif de poursuite du point de fonctionnement de puissance maximale), est un principe permettant de sfaire fonctionner un générateur électrique, dans notre cas les panneaux solaires, à la puissance maximale.
+Un Maximum Power Point Tracking (dispositif de poursuite du point de fonctionnement de puissance maximale), est un principe permettant de faire fonctionner un générateur électrique, dans notre cas les panneaux solaires, à la puissance maximale.
 
 \begin{figure}[ht]
 	\begin{center}
-	\includegraphics[width=0.7\textwidth]{images/MPPT.png}
+	\includegraphics[width=0.7\textwidth]{images/MPPT.jpeg}
 	\caption{Exemple de stratégie MPPT}\label{img:courbe MPPT}
 	\end{center}
 \end{figure}
 \FloatBarrier 
+
+La Figure \ref{img:courbe MPPT} représente une caractéristique de puissance maximale en fonction de la tension et du courant (trait plein). A un courant 
+
+Comme on le voit cette caractéristique est en forme de cloche. Ça a pour effet négatif de nous empêcher de savoir s'il faut augmenter ou réduire la tension pour augmenter la puissance.\\
+Pour pallier ce problème, on utilise une stratégie dite de "Perturb \& Observ" qui, comme son nom l'indique, va perturber le système (par des variations de tension) et observé le résultat pour déterminer dans quelle zone de la caractéristique on se situe. Ensuite on peut donc facilement optimiser la tension, sachant grâce au P\&O si nous devons l'augmenter ou la réduire.\\
 
 % XXX texte explicatif de la figure servira d'exemple. 
