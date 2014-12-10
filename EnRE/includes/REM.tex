@@ -12,8 +12,7 @@ Si l'on veut construire la REM d'un système, il faut dans un premier temps écr
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	 U_{c} &= \cfrac{1}{C}\bigints{(I_{pv}-I_L-\cfrac{U_c}{R_c}).dt}+CI
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -32,8 +31,7 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	 I_{L} &= \cfrac{1}{L}\bigints{(U_{c}-R_L.I_{L}-U_{hp}).dt}+CI
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -52,8 +50,8 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	I_{hp} &= m_{hp}.I_{L}.\eta{}_{hp}\\
+	U_{hp} &= m_{hp}.U_{batt}
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -72,8 +70,7 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	 U_{batt} &= \cfrac{1}{C_{eq}}\bigints{(I_{hp}-I_{hs}).dt}+CI
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -92,8 +89,8 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	 U_{hs} &= m_{hs}.U_{batt}.\eta{}_{hs}\\
+	I_{hs} &= m_{hs}.I_{mcc}
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -112,9 +109,9 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 T_{dcm} &= K_{cfiexc}.I_{dcm}\\
-	E &= K_{cfiexc}.W_{dcm}\\
-	I_{dcm} &= \cfrac{1}{L}\int{U_{ch}-E-R.I_{dcm}}	
+	C_{mcc} &= K_{em}.I_{mcc}\\
+	E &= K_{em}.W_{mcc}\\
+	I_{mcc} &= \cfrac{1}{L}\bigints{(U_{hs}-E-R.I_{mcc}).dt}+CI
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
@@ -133,8 +130,7 @@ $\begin{cases}
 \begin{minipage}{.5\textwidth}  
 \centering
 $\begin{cases}
-	 U_{chop} &= S_{conv}.U_{batt}\\
-	I_{arm} &= S_{conv}.I_{dcm}
+	 W_{arbre} &= \cfrac{1}{J}\bigints{(C_{mcc}-C_{pertes}-C_{pompes}).dt}+CI
 \end{cases}$
 \end{minipage}~
 \begin{minipage}{.5\textwidth}
