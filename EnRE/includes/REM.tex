@@ -161,13 +161,13 @@ Cependant au bout qu'une dizaine de seconde, on voit la tension remonter ce qui 
 
 
 \subsection{Estimation du rendement}
-La REM facilite le calcul de puissance, puisqu'il suffit de multiplier les entrées ou sorties d'un bloc pour avoir la puissance en entrée ou en  sortie de celui-ci. À l'aide de simulink, on mesure les puissances en sortie de la batterie et en entrée de la motopompe. On obtient alors un rendement de $\mathbf{\eta = 73 \%}$.
+La REM facilite le calcul de puissance, puisqu'il suffit de multiplier les entrées ou sorties d'un bloc pour avoir la puissance en entrée ou en  sortie de celui-ci. À l'aide de simulink, on mesure les puissances en sortie de la batterie et en entrée de la motopompe. On obtient alors un rendement de $\mathbf{\eta = 72,88 \%}$.\\
 
-En théorie, le rendement peut se calculer en multipliant les rendements de chaque bloc. Seuls les blocs Hacheur, Inductance et MCC présente des pertes. Elles sont dues, au rendement propre du hacheur, aux pertes résistives de l'induit et au couple de pertes du moteur à courant continu (que nous avons représenté au niveau de la MCC).\\
+En théorie, le rendement peut se calculer en multipliant les rendements de chaque bloc. Seuls les blocs Hacheur, Inductance et MCC présentent des pertes. Elles sont dues : au rendement propre du hacheur, aux pertes résistives de l'induit et au couple de pertes du moteur à courant continu (que nous avons représenté au niveau de la MCC).\\
 Ainsi le couple peut se déterminer de la manière suivante : \\
 $\eta = \eta{}_{hs} \times \eta{}_{ind} \times \eta{}_{mcc} = \eta{}_{hs} \times \cfrac{U_{hs}-R.I_{mcc}}{U_{hs}} \times \cfrac{C_{pompe}}{C_{pompe}+C_{pertes}}$.\\
-Pour rappel, dans notre cas $ U_{hs} = m_{hs}.\eta{}_{hs}.U_{batt} = 0.5\times0.9\times46 $ et $ I_{mcc} = \frac{1}{K_{em}}.C_{mcc} = \frac{1}{K_{em}}.(C_{pompe}+C_pertes)$\\
+Pour rappel, dans notre cas $ U_{hs} = m_{hs}.\eta{}_{hs}.U_{batt} = 0,5\times0,9\times43,2 $ et $ I_{mcc} = \frac{1}{K_{em}}.C_{mcc} = \frac{1}{K_{em}}.(C_{pompe}+C_{pertes})$\\
 Donc $\eta = \eta{}_{hs} \times \cfrac{U_{hs}-R.\cfrac{1}{K_{em}}.(C_{pompe}+C_{pertes})}{U_{hs}} \times \cfrac{C_{pompe}}{C_{pompe}+C_{pertes}}$\\
 
-Ici, $C_{pompe}$ est notre seul inconnu. Nous utilisons donc le Couple pompe de la simulation, qui est de $1,5Nm$ en régime permanent.\\
-Le calcul ci-dessus, nous amène un rendement de $\mathbf{\eta = 73,5314498 \%}$. Ce qui est parfaitement conforme au résultat de la simulation.\\
+Ici, $C_{pompe}$ est notre seul inconnu. Nous utilisons donc le couple pompe de la simulation, qui est de $1,0475Nm$ en régime permanent.\\
+Le calcul ci-dessus, nous amène un rendement de $\mathbf{\eta = 72,89 \%}$. Ce qui est parfaitement conforme au résultat de la simulation.\\
