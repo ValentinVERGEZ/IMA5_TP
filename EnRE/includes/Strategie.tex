@@ -12,9 +12,8 @@ Un Maximum Power Point Tracking (dispositif de poursuite du point de fonctionnem
 \end{figure}
 \FloatBarrier 
 
-La Figure \ref{img:courbe MPPT} représente une caractéristique de puissance maximale en fonction de la tension et du courant (trait plein). A un courant 
+La Figure \ref{img:courbe MPPT} représente une caractéristique de puissance maximale en fonction de la tension et du courant (trait plein), ainsi que la caractéristique courant-tension typique d'un panneau photovoltaïque. Cette caractéristique signifie que l'on peut se placer à différentes tensions et toujours obtenir un fort courant. Mais au delà d'une tension critique, le courant s’effondre et la puissance avec. Il existe un point de fonctionnement courant-tension qui apporte la puissance maximale. C'est le MPP\footnote{Maximum Power Point} de la Figure \ref{img:courbe MPPT}.\\
+Il faut noter que cette caractéristique évolue selon l'irradiance et la température auxquelles fonctionne le panneau photovoltaïque. Par conséquent, le point de fonctionnement à puissance maximal va se déplacer tout au long de l'utilisation du PV. L'objectif de la stratégie sera de faire toujours fonctionner le PV à ce point de fonctionnement, en d'autres mots de "suivre son déplacement".\\
 
-Comme on le voit cette caractéristique est en forme de cloche. Ça a pour effet négatif de nous empêcher de savoir s'il faut augmenter ou réduire la tension pour augmenter la puissance.\\
-Pour pallier ce problème, on utilise une stratégie dite de "Perturb \& Observ" qui, comme son nom l'indique, va perturber le système (par des variations de tension) et observé le résultat pour déterminer dans quelle zone de la caractéristique on se situe. Ensuite on peut donc facilement optimiser la tension, sachant grâce au P\&O si nous devons l'augmenter ou la réduire.\\
-
-% XXX texte explicatif de la figure servira d'exemple. 
+Comme on le voit, cette caractéristique de puissance a une forme en cloche. Ça a pour effet négatif de nous empêcher de savoir s'il faut augmenter ou réduire la tension pour augmenter la puissance.\\
+Pour pallier ce problème, on utilise une stratégie dite de "Perturb \& Observ" qui, comme son nom l'indique, va perturber le système (par des variations de tension) et observer le résultat pour déterminer dans quelle zone de la caractéristique on se situe. Ainsi, on sait s'il faut augmenter ou réduire la tension pour optimiser la puissance.\\
