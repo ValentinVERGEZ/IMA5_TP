@@ -17,3 +17,25 @@ Il faut noter que cette caractéristique évolue selon l'irradiance et la tempé
 
 Comme on le voit, cette caractéristique de puissance a une forme en cloche. Ça a pour effet négatif de nous empêcher de savoir s'il faut augmenter ou réduire la tension pour augmenter la puissance.\\
 Pour pallier ce problème, on utilise une stratégie dite de "Perturb \& Observ" qui, comme son nom l'indique, va perturber le système (par des variations de tension) et observer le résultat pour déterminer dans quelle zone de la caractéristique on se situe. Ainsi, on sait s'il faut augmenter ou réduire la tension pour optimiser la puissance.\\
+
+
+\begin{figure}[ht]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/Energie_MPPT.png}
+	\caption{Exemple de stratégie MPPT}\label{img:courbe energie MPPT}
+	\end{center}
+\end{figure}
+\FloatBarrier 
+
+La figure (\ref{img:courbe energie MPPT}) représente l'énergie fournie par les panneaux photovoltaïques lors de la simulation. Lorsque l'on compare cette énergie à l'énergie fournie par les panneux sans la stratégie MPPT au bout de 30 secondes, on obtient un écart de 600 Joules, soit 10\% de plus lorsque l'on utilise la stratégie MPPT.
+
+Ces 10\% supplémetaires sont dues à la variation de Uc (controlé par le bloc MPPT), dont on peut voir l'évolution sur la figure \ref{img:courbe Uc MPPT}.
+
+\begin{figure}[ht]
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/Uc_MPPT.png}
+	\caption{Exemple de stratégie MPPT}\label{img:courbe Uc MPPT}
+	\end{center}
+\end{figure}
+\FloatBarrier 
+
